@@ -37,7 +37,7 @@ jobs:
             fi
             tag=$(date "+$tag-%y%m%d-$(git rev-parse --short HEAD)")
           fi
-          if [ "$is_release" != "true" ]; then
+          if ! $($is_release) ; then
             prefix=${tag%-*-*}
             suffix=${tag#$prefix-}
             tag="$prefix-ci.$suffix"
@@ -133,10 +133,8 @@ jobs:
       - run: |
           cd assets
           for f in *; do
-            (cd "$f" && zip -r "../${f}-${TAG}.zip" .)
+            (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
           done
-        env:
-          TAG: ${{ needs.meta.outputs.tag }}
 
       - uses: softprops/action-gh-release@v2
         with:
