@@ -28,7 +28,7 @@
     "task": [
         {
             "name": "로그인",
-            "entry": "StartUp",
+            "entry": "GameStart",
             "doc": "신월동행 접속",
             "option": [
                 "서버선택"
