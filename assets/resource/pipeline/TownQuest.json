@@ -261,7 +261,7 @@
             "../image/BackBtn.png"
         ],
         "next": [
-            "TQ_exit"
+            "TQ_rootEvent"
         ],
         "post_delay": 1000,
         "timeout": 3000
