@@ -1,10 +1,10 @@
 {
     "name": "MFMA",
-    "version":  "1.0.5",
+    "version":  "1.0.0",
     "mirrorchyan_rid":  null,
     "mirrorchyan_multiplatform":  false,
     "url":  "https://github.com/maynut02/MFMA",
-    "custom_title": "MFMA - 신월동행",
+    "custom_title": "MFMA - 신월동행 어시스턴트",
     "controller": [
         {
             "name": "安卓端",
@@ -27,12 +27,36 @@
     },
     "task": [
         {
-            "name": "게임시작(테스트)",
-            "entry": "启动游戏",
-            "doc": "신월동행 실행"
+            "name": "로그인",
+            "entry": "StartUp",
+            "doc": "신월동행 접속",
+            "option": [
+                "서버선택"
+            ],
+            "check": true
+        },
+        {
+            "name": "마을 임무",
+            "entry": "TownQuest",
+            "doc": "마을 임무 실행"
         }
     ],
     "option": {
-        
+        "서버선택": {
+            "cases": [
+                {
+                    "name": "직영",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "비리비리",
+                    "pipeline_override": {
+                        "StartUp": {
+                            "interrupt": "StartApp_b"
+                        }
+                    }
+                }
+            ]
+        }
     }
 }

@@ -1,221 +1,130 @@
 {
-    "启动游戏": {
+    "GameStart": {
         "next": [
-            "启动游戏_开始"
-        ]
-    },
-    "启动游戏_开始": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "timeout": 31000,
-        "next": [
-            "启动游戏_更新游戏",
-            "启动游戏_校准现实",
-            "启动游戏_主界面"
+            "GS_isHome",
+            "GS_isPopup",
+            "GS_terms",
+            "GS_update",
+            "GS_biliLogin",
+            "GS_connect"
         ],
         "interrupt": [
-            "启动游戏_启动游戏"
-        ]
+            "GS_startApp"
+        ],
+        "timeout": 60000
     },
-    "启动游戏_更新游戏": {
+
+    "GS_startApp": {
+        "action": "StartApp",
+        "package": "com.firewick.p42",
+        "post_delay": 3000
+    },
+    "GS_startApp_bili": {
+        "action": "StartApp",
+        "package": "com.firewick.p42.bilibili",
+        "post_delay": 3000
+    },
+
+    "GS_terms": {
         "recognition": "OCR",
-        "action": "DoNothing",
+        "action": "Click",
+        "expected": [
+            "同意"
+        ],
+        "next": [
+            "GameStart"
+        ],
+        "post_delay": 3000
+    },
+
+    "GS_update": {
+        "recognition": "OCR",
+        "action": "Click",
         "expected": [
             "新版本资源"
         ],
         "next": [
-            "启动游戏_确定更新"
-        ]
-    },
-    "启动游戏_校准现实": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "校准现实"
+            "GS_updateConfirm"
         ],
-        "pre_delay": 2000,
-        "timeout": 10000,
-        "post_delay": 5000,
-        "next": [
-            "启动游戏_主界面"
-        ],
-        "interrupt": [
-            "启动游戏_关闭活动公告",
-            "启动游戏_关闭签到界面1"
-        ]
+        "post_delay": 500
     },
-    "启动游戏_主界面": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "城市探索"
-        ],
-        "next": [
-            "启动游戏_防止公告延迟"
-        ]
-    },
-    "启动游戏_启动游戏": {
-        "recognition": "DirectHit",
-        "action": "StartApp",
-        "package": "com.firewick.p42.bilibili",
-        "post_delay": 10000
-    },
-    "启动游戏_确定更新": {
+    "GS_updateConfirm": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
             "确定"
         ],
-        "timeout": 600000,
-        "rate_limit": 3000,
-        "pre_delay": 400,
         "next": [
-            "启动游戏_校准现实"
-        ]
+            "GameStart"
+        ],
+        "post_delay": 500
     },
-    "启动游戏_关闭活动公告": {
-        "recognition": "TemplateMatch",
+
+    "GS_biliLogin": {
+        "recognition": "OCR",
         "action": "Click",
-        "template": [
-            "../image/close.png"
+        "expected": [
+            "登录"
         ],
-        "post_delay": 300
+        "next": [
+            "GameStart"
+        ],
+        "post_delay": 3000
     },
-    "启动游戏_关闭签到界面1": {
-        "recognition": "DirectHit",
+
+    "GS_connect": {
+        "recognition": "OCR",
         "action": "Click",
-        "target": [
-            25,
-            200,
-            1,
-            1
-        ],
-        "post_delay": 200,
-        "next": [
-            "启动游戏_关闭签到界面2"
-        ]
-    },
-    "启动游戏_防止公告延迟": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "timeout": 2000,
-        "post_delay": 3000,
-        "next": [
-            "启动游戏_关闭公告"
-        ],
-        "on_error": [
-            "启动游戏_确认结束1"
-        ]
-    },
-    "启动游戏_关闭签到界面2": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            25,
-            200,
-            1,
-            1
-        ],
-        "post_delay": 200,
-        "next": [
-            "启动游戏_关闭签到界面3"
-        ]
-    },
-    "启动游戏_关闭公告": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/close.png"
-        ],
-        "pre_delay": 400,
-        "next": [
-            "启动游戏_确认结束1"
-        ]
-    },
-    "启动游戏_确认结束1": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "next": [
-            "启动游戏_关闭其他界面1"
-        ]
-    },
-    "启动游戏_关闭签到界面3": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            25,
-            200,
-            1,
-            1
-        ],
-        "post_delay": 2000,
-        "timeout": 1000
-    },
-    "启动游戏_关闭其他界面1": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            25,
-            200,
-            1,
-            1
-        ],
-        "post_delay": 200,
-        "pre_delay": 5000,
-        "next": [
-            "启动游戏_关闭其他界面2"
-        ]
-    },
-    "启动游戏_关闭其他界面2": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            25,
-            200,
-            1,
-            1
-        ],
-        "post_delay": 200,
-        "next": [
-            "启动游戏_关闭其他界面3"
-        ]
-    },
-    "启动游戏_关闭其他界面3": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            25,
-            200,
-            1,
-            1
+        "expected": [
+            "校准现实"
         ],
         "next": [
-            "启动游戏_确认结束2"
-        ]
+            "GameStart"
+        ],
+        "post_delay": 3000
     },
-    "启动游戏_确认结束2": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "next": [
-            "启动游戏_最终确认"
-        ]
-    },
-    "启动游戏_关闭游戏": {
-        "recognition": "DirectHit",
-        "action": "StopApp",
-        "package": "com.firewick.p42",
-        "post_delay": 2000,
-        "next": [
-            "启动游戏_开始"
-        ]
-    },
-    "启动游戏_最终确认": {
+
+    "GS_isHome": {
         "recognition": "OCR",
         "action": "DoNothing",
         "expected": [
             "城市探索"
         ],
-        "post_delay": 3000,
-        "timeout": 3000
+        "next": [
+            "GS_isPopup"
+        ],
+        "on_error": [
+            "GS_exit"
+        ],
+        "timeout": 5000
+    },
+
+    "GS_isPopup": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "GS_popupClose"
+        ]
+    },
+    "GS_popupClose": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "GS_isHome"
+        ]
+    },
+
+    "GS_exit": {
+        "recognition": "OCR",
+        "action": "StopTask",
+        "expected": [
+            "城市探索"
+        ]
     }
 }
