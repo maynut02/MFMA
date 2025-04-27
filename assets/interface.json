@@ -52,7 +52,7 @@
                     "name": "비리비리",
                     "pipeline_override": {
                         "StartUp": {
-                            "interrupt": "StartApp_b"
+                            "interrupt": "GS_startApp_bili"
                         }
                     }
                 }
