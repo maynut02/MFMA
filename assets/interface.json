@@ -39,6 +39,15 @@
             "name": "마을 임무",
             "entry": "TownQuest",
             "doc": "마을 임무 실행"
+        },
+        {
+            "name": "스테미너 사용",
+            "entry": "UseStamina",
+            "doc": "스테미너 사용 실행",
+            "option": [
+                "스테이지 선택",
+                "난이도 선택"
+            ]
         }
     ],
     "option": {
@@ -53,6 +62,257 @@
                     "pipeline_override": {
                         "GameStart": {
                             "interrupt": "GS_startApp_bili"
+                        }
+                    }
+                }
+            ]
+        },
+        "스테이지 선택": {
+            "cases": [
+                {
+                    "name": "경험치",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_경험치"
+                        }
+                    }
+                },
+                {
+                    "name": "골드",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_골드"
+                        }
+                    }
+                },
+                {
+                    "name": "정예화 책(정, 주황)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_정예_주황"
+                        }
+                    }
+                },
+                {
+                    "name": "정예화 책(, 파랑)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_정예_파랑"
+                        }
+                    }
+                },
+                {
+                    "name": "정예화 책(, 초록)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_정예_초록"
+                        }
+                    }
+                },
+                {
+                    "name": "정예화 책(, 노랑)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_정예_노랑"
+                        }
+                    }
+                },
+                {
+                    "name": "정예화 책(, 보라)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_정예_보라"
+                        }
+                    }
+                },
+                {
+                    "name": "스킬 강화 티켓(공격)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_스킬_공격"
+                        }
+                    }
+                },
+                {
+                    "name": "스킬 강화 티켓(특수)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_스킬_특수"
+                        }
+                    }
+                },
+                {
+                    "name": "스킬 강화 티켓(저격)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_스킬_저격"
+                        }
+                    }
+                },
+                {
+                    "name": "스킬 강화 티켓(보호)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_스킬_보호"
+                        }
+                    }
+                },
+                {
+                    "name": "스킬 강화 티켓(보조)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_스킬_보조"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(역전/주방)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_역전_swipe"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(실루엣/타워)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_실루엣_swipe"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(주먹/템플)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_주먹_swipe"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(퍼볼/왈츠)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_퍼볼_swipe"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(핑크/운명)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_핑크_swipe"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(보철/황야)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_보철_swipe"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(전자/메가)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_전자_swipe"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(코로나/악령)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_코로나_swipe"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트(성하전사/북쪽담)",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트"
+                        },
+                        "US_stage_카세트1": {
+                            "next": "US_stage_카세트_성하_swipeㅍ"
+                        }
+                    }
+                },
+                {
+                    "name": "카세트 경험치",
+                    "pipeline_override": {
+                        "US_rootAttack": {
+                            "next": "US_stage_카세트경험치"
+                        }
+                    }
+                }
+            ]
+        },
+        "난이도 선택": {
+            "cases": [
+                {
+                    "name": "1단계",
+                    "pipeline_override": {
+                        "US_stage_ready": {
+                            "next": "US_stage_level_1"
+                        }
+                    }
+                },
+                {
+                    "name": "2단계",
+                    "pipeline_override": {
+                        "US_stage_ready": {
+                            "next": "US_stage_level_2"
+                        }
+                    }
+                },
+                {
+                    "name": "3단계",
+                    "pipeline_override": {
+                        "US_stage_ready": {
+                            "next": "US_stage_level_3"
+                        }
+                    }
+                },
+                {
+                    "name": "4단계",
+                    "pipeline_override": {
+                        "US_stage_ready": {
+                            "next": "US_stage_level_4"
+                        }
+                    }
+                },
+                {
+                    "name": "5단계",
+                    "pipeline_override": {
+                        "US_stage_ready": {
+                            "next": "US_stage_level_5"
                         }
                     }
                 }
