@@ -60,7 +60,7 @@
                 {
                     "name": "비리비리",
                     "pipeline_override": {
-                        "GameStart": {
+                        "GS_isLoading": {
                             "interrupt": "GS_startApp_bili"
                         }
                     }

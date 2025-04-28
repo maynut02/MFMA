@@ -34,6 +34,7 @@
     },
     "US_goBack": {
         "next": [
+            "US_isAttack",
             "US_isHome"
         ],
         "interrupt": [
@@ -100,7 +101,11 @@
         "next": [
             "US_stage_경험치"
         ],
-        "post_delay": 2000
+        "on_error": [
+            "US_goBack"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
     },
 
     "US_stage_경험치": {
@@ -768,6 +773,9 @@
     "US_stage_ready": {
         "next": [
             "US_stage_level_1"
+        ],
+        "on_error": [
+            "US_goBack"
         ],
         "post_delay": 1000,
         "timeout": 3000
