@@ -1,0 +1,40 @@
+{
+    "DailyReward": {
+        "next": [
+            "DR_start_mail"
+        ]
+    },
+
+
+
+    "DR_start_mail": {
+        "next": [
+            "VisitMail"
+        ]
+    },
+    "DR_end_mail": {
+        "next": [
+            "DR_start_store"
+        ]
+    },
+
+
+
+    "DR_start_store": {
+        "next": [
+            "VisitStore"
+        ]
+    },
+    "DR_end_store": {
+        "next": [
+            "DR_end"
+        ]
+    },
+    
+
+
+    "DR_end": {
+        "recognition": "DirectHit",
+        "action": "StopTask"
+    }
+}

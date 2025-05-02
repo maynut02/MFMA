@@ -1,0 +1,645 @@
+{
+    "MODULE_go_lobby": {
+        "next": [
+            "MODULE_check_lobby",
+            "MODULE_check_homeBtn",
+            "MODULE_check_backBtn",
+            "MODULE_check_reward",
+            "MODULE_check_popup",
+            "MODULE_check_wrong",
+            "MODULE_check_cancel",
+            "MODULE_check_story",
+            "MODULE_check_battle",
+            "MODULE_check_battle_pause",
+            "MODULE_check_battle_result_reward",
+            "MODULE_check_battle_result_score",
+            "MODULE_check_battle_result_other",
+            "MODULE_check_rouge_selectItem"
+        ],
+        "timeout": 30000,
+        "on_error": [
+            "MODULE_end"
+        ]
+    },
+
+
+    "MODULE_check_lobby": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "城市探索"
+        ],
+        "post_delay": 2000,
+        "next": [
+            "MODULE_check_lobby2"
+        ],
+        "interrupt": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_check_lobby2": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "城市探索"
+        ],
+        "next": [
+            "MODULE_end"
+        ]
+    },
+
+
+    "MODULE_check_backBtn": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/BackBtn.png"
+        ],
+        "next": [
+            "MODULE_click_backBtn"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_backBtn": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/BackBtn.png"
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_homeBtn": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "next": [
+            "MODULE_click_homeBtn"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_homeBtn": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_popup": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "MODULE_close_popup"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_close_popup": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_battle": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/BattlePage/BattlePause.png"
+        ],
+        "roi": [
+            1180,
+            12,
+            110,
+            80
+        ],
+        "next": [
+            "MODULE_pause_battle"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_pause_battle": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/BattlePage/BattlePause.png"
+        ],
+        "roi": [
+            1180,
+            12,
+            110,
+            80
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_battle_pause": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "作战暂停"
+        ],
+        "roi": [
+            500,
+            120,
+            280,
+            80
+        ],
+        "next": [
+            "MODULE_out_battle_pause"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_out_battle_pause": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "结束作战",
+            "放弃作战"
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+
+    "MODULE_check_battle_result_score": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "周期寻回"
+        ],
+        "next": [
+            "MODULE_out_battle_result_score"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_out_battle_result_score": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target_offset": [
+            774,
+            600,
+            46,
+            27
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_battle_result_other": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "行动失败",
+            "行动暂停",
+            "作战失败"
+        ],
+        "next": [
+            "MODULE_out_battle_result_other"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_out_battle_result_other": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "暂离行动",
+            "结束行动"
+        ],
+        "roi": [
+            200,
+            520,
+            900,
+            120
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_battle_result_reward": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "行动结束",
+            "行动成功"
+        ],
+        "next": [
+            "MODULE_out_battle_result_reward"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_out_battle_result_reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            700,
+            560,
+            800,
+            250
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_reward": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "MODULE_click_reward"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_wrong": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "注意！"
+        ],
+        "next": [
+            "MODULE_check_wrong_option_yes",
+            "MODULE_check_wrong_option_no"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_check_wrong_option_yes": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "是否暂时离开本次探索？",
+            "结束作战将按当前积分进行结算，确定放弃？",
+            "放弃视为作战失败，是否确定放弃？",
+            "是否退出当前剧情回顾？",
+            "是否结束当前行动，结算奖励？"
+        ],
+        "roi": [
+            50,
+            250,
+            1200,
+            170
+        ],
+        "next": [
+            "MODULE_click_wrong_yes"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_wrong_yes": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            50,
+            420,
+            1200,
+            240
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_wrong_option_no": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "是否确认退出登录，并返回登录界面？",
+            "是否消耗"
+        ],
+        "roi": [
+            50,
+            250,
+            1200,
+            170
+        ],
+        "next": [
+            "MODULE_click_wrong_no"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_wrong_no": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "取消"
+        ],
+        "roi": [
+            50,
+            420,
+            1200,
+            240
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_other": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "点击空白处关闭"
+        ],
+        "next": [
+            "MODULE_click_other"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_other": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "点击空白处关闭"
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_cancel": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "取消"
+        ],
+        "next": [
+            "MODULE_click_cancel"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_cancel": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "取消"
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_rouge_selectItem": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "选择其中1个物品作为您的奖励"
+        ],
+        "next": [
+            "MODULE_click_rouge_selectItem"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_rouge_selectItem": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "选择"
+        ],
+        "roi": [
+            150,
+            500,
+            980,
+            80
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_story": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": "../image/StoryPage/logIcon.png",
+        "roi": [
+            0,
+            40,
+            1300,
+            90
+        ],
+        "next": [
+            "MODULE_check_story_pause",
+            "MODULE_check_story_quit",
+            "MODULE_check_story_skip",
+            "MODULE_check_story_auto"
+        ]
+    },
+
+    "MODULE_check_story_skip": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": "../image/StoryPage/skipIcon.png",
+        "roi": [
+            0,
+            40,
+            1300,
+            90
+        ],
+        "next": [
+            "MODULE_click_story_skip"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_story_skip": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": "../image/StoryPage/skipIcon.png",
+        "roi": [
+            0,
+            40,
+            1300,
+            90
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_story_quit": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": "../image/StoryPage/quitIcon.png",
+        "roi": [
+            0,
+            40,
+            1300,
+            90
+        ],
+        "next": [
+            "MODULE_click_story_quit"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_story_quit": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": "../image/StoryPage/quitIcon.png",
+        "roi": [
+            0,
+            40,
+            1300,
+            90
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_story_pause": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": "../image/StoryPage/pauseIcon.png",
+        "roi": [
+            0,
+            40,
+            1300,
+            90
+        ],
+        "next": [
+            "MODULE_click_story_pause"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "MODULE_go_lobby"
+        ]
+    },
+    "MODULE_click_story_pause": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": "../image/StoryPage/pauseIcon.png",
+        "roi": [
+            0,
+            40,
+            1300,
+            90
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+    "MODULE_check_story_auto": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "x4"
+        ],
+        "inverse": true,
+        "roi": [
+            0,
+            40,
+            1300,
+            90
+        ],
+        "next": [
+            "MODULE_click_story_auto"
+        ]
+    },
+    "MODULE_click_story_auto": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target_offset": [
+            1024, 
+            86,
+            2,
+            2
+        ],
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    },
+
+
+    "MODULE_end": {
+        "recognition": "DirectHit",
+        "action": "StopTask"
+    }
+}
+

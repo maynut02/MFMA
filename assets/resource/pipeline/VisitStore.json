@@ -1,0 +1,702 @@
+{
+    "__yamaape_config_VisitStore": {
+        "filename": "VisitStore",
+        "version": "v0.3.2",
+        "export": ""
+    },
+    "VisitStore": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "采购中心"
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 2014,
+                "y": 456
+            }
+        },
+        "next": [
+            "StoreMenu1-1"
+        ]
+    },
+    "StoreMenu1-1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "补给包"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2274,
+                "y": 456
+            }
+        },
+        "next": [
+            "StoreMenu1-2"
+        ]
+    },
+    "StoreMenu1-2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "特惠活动"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2534,
+                "y": 456
+            }
+        },
+        "next": [
+            "StoreItem1-1"
+        ],
+        "interrupt": [
+            "StoreMenu2-1"
+        ]
+    },
+    "StoreItem1-1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "免费"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2866,
+                "y": 453
+            }
+        },
+        "next": [
+            "StoreItem1-2"
+        ]
+    },
+    "StoreItem1-2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "免费购买"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3126,
+                "y": 453
+            }
+        },
+        "next": [
+            "StoreItem1_Reward"
+        ]
+    },
+    "StoreItem1_Reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3386,
+                "y": 453
+            }
+        },
+        "next": [
+            "StoreMenu2-1"
+        ]
+    },
+    "StoreMenu2-1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "流动市场"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2273,
+                "y": 759
+            }
+        },
+        "next": [
+            "StoreMenu2-2"
+        ]
+    },
+    "StoreMenu2-2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "特价交易所"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2532,
+                "y": 757
+            }
+        },
+        "next": [
+            "StoreItem2-1"
+        ],
+        "interrupt": [
+            "StoreItem3-0"
+        ]
+    },
+    "StoreItem2-1": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "已售馨"
+        ],
+        "roi": [
+            330,
+            410,
+            180,
+            150
+        ],
+        "inverse": true,
+        "__yamaape": {
+            "position": {
+                "x": 2862,
+                "y": 752
+            }
+        },
+        "next": [
+            "StoreItem2-2"
+        ]
+    },
+    "StoreItem2-2": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            420,
+            482,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3122,
+                "y": 752
+            }
+        },
+        "next": [
+            "StoreItem2_Popup"
+        ],
+        "interrupt": [
+            "StoreItem3-0"
+        ]
+    },
+    "StoreItem3-0": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 2531,
+                "y": 1030
+            }
+        },
+        "next": [
+            "StoreItem3-1"
+        ],
+        "interrupt": [
+            "StoreItem4-0"
+        ]
+    },
+    "StoreItem3-1": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "已售馨"
+        ],
+        "roi": [
+            560,
+            410,
+            180,
+            150
+        ],
+        "inverse": true,
+        "__yamaape": {
+            "position": {
+                "x": 2861,
+                "y": 1020
+            }
+        },
+        "next": [
+            "StoreItem3-2"
+        ]
+    },
+    "StoreItem4-0": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 2528,
+                "y": 1291
+            }
+        },
+        "next": [
+            "StoreItem4-1"
+        ],
+        "interrupt": [
+            "StoreItem5-0"
+        ]
+    },
+    "StoreItem4-1": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "已售馨"
+        ],
+        "roi": [
+            780,
+            410,
+            180,
+            150
+        ],
+        "inverse": true,
+        "__yamaape": {
+            "position": {
+                "x": 2860,
+                "y": 1288
+            }
+        },
+        "next": [
+            "StoreItem4-2"
+        ]
+    },
+    "StoreItem5-0": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 2530,
+                "y": 1569
+            }
+        },
+        "next": [
+            "StoreItem5-1"
+        ],
+        "interrupt": [
+            "VisitStore_Out"
+        ]
+    },
+    "StoreItem5-1": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "已售馨"
+        ],
+        "roi": [
+            1010,
+            410,
+            180,
+            150
+        ],
+        "inverse": true,
+        "__yamaape": {
+            "position": {
+                "x": 2861,
+                "y": 1559
+            }
+        },
+        "next": [
+            "StoreItem5-2"
+        ]
+    },
+    "StoreItem3-2": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            636,
+            475,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3131,
+                "y": 1025
+            }
+        },
+        "interrupt": [
+            "StoreItem4-0"
+        ],
+        "next": [
+            "StoreItem3_Popup"
+        ]
+    },
+    "StoreItem4-2": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            866,
+            486,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3141,
+                "y": 1282
+            }
+        },
+        "interrupt": [
+            "StoreItem5-0"
+        ],
+        "next": [
+            "StoreItem4_Popup"
+        ]
+    },
+    "StoreItem5-2": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1103,
+            493,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3141,
+                "y": 1560
+            }
+        },
+        "interrupt": [
+            "VisitStore_Out"
+        ],
+        "next": [
+            "StoreItem5_Popup"
+        ]
+    },
+    "StoreItem2_Close": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3699,
+                "y": 749
+            }
+        },
+        "next": [
+            "StoreItem3-0"
+        ]
+    },
+    "StoreItem3_Close": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3704,
+                "y": 1015
+            }
+        },
+        "next": [
+            "StoreItem4-0"
+        ]
+    },
+    "StoreItem4_Close": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3703,
+                "y": 1278
+            }
+        },
+        "next": [
+            "StoreItem5-0"
+        ]
+    },
+    "StoreItem2-3": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            ",,/image/StoreGold.png"
+        ],
+        "roi": [
+            660,
+            540,
+            350,
+            100
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3985,
+                "y": 748
+            }
+        },
+        "next": [
+            "StoreItem2_Reward"
+        ]
+    },
+    "StoreItem2_Reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4287,
+                "y": 749
+            }
+        },
+        "next": [
+            "StoreItem3-0"
+        ]
+    },
+    "StoreItem3-3": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            ",,/image/StoreGold.png"
+        ],
+        "roi": [
+            660,
+            540,
+            350,
+            100
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3990,
+                "y": 1012
+            }
+        },
+        "next": [
+            "StoreItem3_Reward"
+        ]
+    },
+    "StoreItem3_Reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4280,
+                "y": 1013
+            }
+        },
+        "next": [
+            "StoreItem4-0"
+        ]
+    },
+    "StoreItem4_Reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4282,
+                "y": 1281
+            }
+        },
+        "next": [
+            "StoreItem5-0"
+        ]
+    },
+    "StoreItem4-3": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            ",,/image/StoreGold.png"
+        ],
+        "roi": [
+            660,
+            540,
+            350,
+            100
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3994,
+                "y": 1281
+            }
+        },
+        "next": [
+            "StoreItem4_Reward"
+        ]
+    },
+    "StoreItem5-3": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            ",,/image/StoreGold.png"
+        ],
+        "roi": [
+            660,
+            540,
+            350,
+            100
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3993,
+                "y": 1556
+            }
+        },
+        "next": [
+            "StoreItem5_Reward"
+        ]
+    },
+    "StoreItem5_Reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4287,
+                "y": 1560
+            }
+        },
+        "next": [
+            "VisitStore_Out"
+        ]
+    },
+    "VisitStore_Out": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3578,
+                "y": 1927
+            }
+        },
+        "next": [
+            "VisitStore_End"
+        ]
+    },
+    "StoreItem2_Popup": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3403,
+                "y": 751
+            }
+        },
+        "next": [
+            "StoreItem2-3"
+        ],
+        "interrupt": [
+            "StoreItem2_Close"
+        ]
+    },
+    "StoreItem3_Popup": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3413,
+                "y": 1019
+            }
+        },
+        "interrupt": [
+            "StoreItem3_Close"
+        ],
+        "next": [
+            "StoreItem3-3"
+        ]
+    },
+    "StoreItem4_Popup": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3426,
+                "y": 1280
+            }
+        },
+        "next": [
+            "StoreItem4-3"
+        ],
+        "interrupt": [
+            "StoreItem4_Close"
+        ]
+    },
+    "StoreItem5_Popup": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3426,
+                "y": 1557
+            }
+        },
+        "next": [
+            "StoreItem5-3"
+        ],
+        "interrupt": [
+            "StoreItem5_Close"
+        ]
+    },
+    "StoreItem5_Close": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3714,
+                "y": 1559
+            }
+        },
+        "next": [
+            "VisitStore_Out"
+        ]
+    },
+    "VisitStore_End": {
+        "recognition": "DirectHit",
+        "action": "StopTask",
+        "__yamaape": {
+            "position": {
+                "x": 3872,
+                "y": 1926
+            }
+        }
+    }
+}

@@ -36,32 +36,50 @@
             "check": true
         },
         {
-            "name": "마을 임무",
-            "entry": "TownQuest",
-            "doc": "마을 임무 실행"
+            "name": "우편 수령",
+            "entry": "VisitMail",
+            "doc": "우편 수령"
+        },
+        {
+            "name": "우정 교환",
+            "entry": "VisitFriend",
+            "doc": "우정 교환"
+        },
+        {
+            "name": "상점 탐색",
+            "entry": "VisitStore",
+            "doc": "무료 구매 물품 자동 구매"
         },
         {
             "name": "스테미너 사용",
             "entry": "UseStamina",
-            "doc": "스테미너 사용 실행",
+            "doc": "스테이지 자동 반복으로 스테미너 사용\n- 회복약과 우유 회복(미완성)\n- 입장 가능한 최고 난이도 자동 지정(미완성)",
             "option": [
-                "스테이지 선택",
-                "난이도 선택"
+                "스테이지 선택"
             ]
+        },
+        {
+            "name": "마을 임무(미완성)",
+            "entry": "VisitTown",
+            "doc": "마을 임무 실행"
         }
     ],
     "option": {
         "서버선택": {
             "cases": [
                 {
-                    "name": "직영",
-                    "pipeline_override": {}
-                },
-                {
                     "name": "비리비리",
                     "pipeline_override": {
-                        "GS_isLoading": {
-                            "interrupt": "GS_startApp_bili"
+                        "StartApp": {
+                            "package": "com.firewick.p42.bilibili"
+                        }
+                    }
+                },
+                {
+                    "name": "직영",
+                    "pipeline_override": {
+                        "StartApp": {
+                            "package": "com.firewick.p42"
                         }
                     }
                 }
@@ -70,249 +88,351 @@
         "스테이지 선택": {
             "cases": [
                 {
-                    "name": "경험치",
+                    "name": "캐릭터 경험치",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_경험치"
+                        "StageMenu": {
+                            "expected": [
+                                "象征车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0
                         }
                     }
                 },
                 {
                     "name": "골드",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_골드"
-                        }
-                    }
-                },
-                {
-                    "name": "정예화 책(정, 주황)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_정예_주황"
-                        }
-                    }
-                },
-                {
-                    "name": "정예화 책(, 파랑)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_정예_파랑"
-                        }
-                    }
-                },
-                {
-                    "name": "정예화 책(, 초록)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_정예_초록"
-                        }
-                    }
-                },
-                {
-                    "name": "정예화 책(, 노랑)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_정예_노랑"
-                        }
-                    }
-                },
-                {
-                    "name": "정예화 책(, 보라)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_정예_보라"
-                        }
-                    }
-                },
-                {
-                    "name": "스킬 강화 티켓(공격)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_스킬_공격"
-                        }
-                    }
-                },
-                {
-                    "name": "스킬 강화 티켓(특수)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_스킬_특수"
-                        }
-                    }
-                },
-                {
-                    "name": "스킬 강화 티켓(저격)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_스킬_저격"
-                        }
-                    }
-                },
-                {
-                    "name": "스킬 강화 티켓(보호)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_스킬_보호"
-                        }
-                    }
-                },
-                {
-                    "name": "스킬 강화 티켓(보조)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_스킬_보조"
-                        }
-                    }
-                },
-                {
-                    "name": "카세트(역전/주방)",
-                    "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "象征车厢"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_역전_swipe"
+                        "SelectStage": {
+                            "index": 1
                         }
                     }
                 },
                 {
-                    "name": "카세트(실루엣/타워)",
+                    "name": "정예화책/주황",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "分析车厢"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_실루엣_swipe"
+                        "SelectStage": {
+                            "index": 0
                         }
                     }
                 },
                 {
-                    "name": "카세트(주먹/템플)",
+                    "name": "정예화책/파랑",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "分析车厢"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_주먹_swipe"
+                        "SelectStage": {
+                            "index": 1
                         }
                     }
                 },
                 {
-                    "name": "카세트(퍼볼/왈츠)",
+                    "name": "정예화책/초록",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "分析车厢"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_퍼볼_swipe"
+                        "SelectStage": {
+                            "index": 2
                         }
                     }
                 },
                 {
-                    "name": "카세트(핑크/운명)",
+                    "name": "정예화책/노랑",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "分析车厢"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_핑크_swipe"
+                        "SelectStage": {
+                            "index": 3
                         }
                     }
                 },
                 {
-                    "name": "카세트(보철/황야)",
+                    "name": "정예화책/보라",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "分析车厢"
+                            ],
+                            "next": [
+                                "StageMenu_SwipeDown"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_보철_swipe"
+                        "SelectStage": {
+                            "index": 3
                         }
                     }
                 },
                 {
-                    "name": "카세트(전자/메가)",
+                    "name": "스킬강화/공격",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "景观车厢"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_전자_swipe"
+                        "SelectStage": {
+                            "index": 0
                         }
                     }
                 },
                 {
-                    "name": "카세트(코로나/악령)",
+                    "name": "스킬강화/특수",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "景观车厢"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_코로나_swipe"
+                        "SelectStage": {
+                            "index": 1
                         }
                     }
                 },
                 {
-                    "name": "카세트(성하전사/북쪽담)",
+                    "name": "스킬강화/돌격",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트"
+                        "StageMenu": {
+                            "expected": [
+                                "景观车厢"
+                            ]
                         },
-                        "US_stage_카세트1": {
-                            "next": "US_stage_카세트_성하_swipeㅍ"
+                        "SelectStage": {
+                            "index": 2
                         }
                     }
                 },
                 {
-                    "name": "카세트 경험치",
+                    "name": "스킬강화/보호",
                     "pipeline_override": {
-                        "US_rootAttack": {
-                            "next": "US_stage_카세트경험치"
-                        }
-                    }
-                }
-            ]
-        },
-        "난이도 선택": {
-            "cases": [
-                {
-                    "name": "1단계",
-                    "pipeline_override": {
-                        "US_stage_ready": {
-                            "next": "US_stage_level_1"
+                        "StageMenu": {
+                            "expected": [
+                                "景观车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 3
                         }
                     }
                 },
                 {
-                    "name": "2단계",
+                    "name": "스킬강화/지원",
                     "pipeline_override": {
-                        "US_stage_ready": {
-                            "next": "US_stage_level_2"
+                        "StageMenu": {
+                            "expected": [
+                                "景观车厢"
+                            ],
+                            "next": [
+                                "StageMenu_SwipeDown"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 3
                         }
                     }
                 },
                 {
-                    "name": "3단계",
+                    "name": "칩/01",
                     "pipeline_override": {
-                        "US_stage_ready": {
-                            "next": "US_stage_level_3"
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/01.png"
                         }
                     }
                 },
                 {
-                    "name": "4단계",
+                    "name": "칩/02",
                     "pipeline_override": {
-                        "US_stage_ready": {
-                            "next": "US_stage_level_4"
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/02.png"
                         }
                     }
                 },
                 {
-                    "name": "5단계",
+                    "name": "칩/03",
                     "pipeline_override": {
-                        "US_stage_ready": {
-                            "next": "US_stage_level_5"
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/03.png"
+                        }
+                    }
+                },
+                {
+                    "name": "칩/04",
+                    "pipeline_override": {
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/04.png"
+                        }
+                    }
+                },
+                {
+                    "name": "칩/05",
+                    "pipeline_override": {
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/05.png"
+                        }
+                    }
+                },
+                {
+                    "name": "칩/06",
+                    "pipeline_override": {
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/06.png"
+                        }
+                    }
+                },
+                {
+                    "name": "칩/07",
+                    "pipeline_override": {
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/07.png"
+                        }
+                    }
+                },
+                {
+                    "name": "칩/08",
+                    "pipeline_override": {
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/08.png"
+                        }
+                    }
+                },
+                {
+                    "name": "칩/09",
+                    "pipeline_override": {
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 0,
+                            "next": [
+                                "ChipList"
+                            ]
+                        },
+                        "ChipList_SelectChip": {
+                            "template": "../image/chip/09.png"
+                        }
+                    }
+                },
+                {
+                    "name": "칩 경험치",
+                    "pipeline_override": {
+                        "StageMenu": {
+                            "expected": [
+                                "卡带车厢"
+                            ]
+                        },
+                        "SelectStage": {
+                            "index": 1,
+                            "next": [
+                                "StageLevel"
+                            ]
                         }
                     }
                 }

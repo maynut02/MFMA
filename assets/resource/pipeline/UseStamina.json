@@ -1,833 +1,675 @@
 {
+    "__yamaape_config_UseStamina": {
+        "filename": "UseStamina",
+        "version": "v0.3.2",
+        "export": ""
+    },
     "UseStamina": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 956,
+                "y": 599
+            }
+        },
         "next": [
-            "US_isAttack"
-        ],
-        "interrupt": [
-            "US_goBack"
+            "GoBattle"
         ]
     },
-
-    "US_isAttack": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "象征车厢"
-        ],
-        "next": [
-            "US_rootAttack"
-        ],
-        "post_delay": 500,
-        "timeout": 2000
-    },
-    "US_isHome": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "城市探索"
-        ],
-        "next": [
-            "US_goAttack"
-        ],
-        "post_delay": 500,
-        "timeout": 2000
-    },
-    "US_goBack": {
-        "next": [
-            "US_isAttack",
-            "US_isHome"
-        ],
-        "interrupt": [
-            "US_clickHomeBtn",
-            "US_clickBackBtn",
-            "US_clickOther"
-        ],
-        "timeout": 10000
-    },
-    "US_goAttack": {
+    "GoBattle": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
             "战略行动"
         ],
-        "next": [
-            "US_isAttack"
-        ],
-        "on_error": [
-            "US_goBack"
-        ],
         "post_delay": 500,
-        "timeout": 5000
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 1238,
+                "y": 557
+            }
+        },
+        "next": [
+            "StageMenu"
+        ]
     },
-
-    "US_clickBackBtn": {
+    "StageMenu": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            ""
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 1534,
+                "y": 568
+            }
+        },
+        "next": [
+            "SelectStage"
+        ]
+    },
+    "SelectStage": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "index": 0,
+        "roi": [
+            1050,
+            160,
+            200,
+            500
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 2228,
+                "y": 650
+            }
+        },
+        "next": [
+            "StageLevel"
+        ]
+    },
+    "StageLevel": {
+        "recognition": "OCR",
+        "action": "Click",
+        "pre_delay": 400,
+        "expected": [
+            "-5"
+        ],
+        "roi": [
+            40,
+            115,
+            700,
+            550
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3083,
+                "y": 752
+            }
+        },
+        "next": [
+            "StageRepeat",
+            "RepeatSetting_41"
+        ]
+    },
+    "StageRepeat": {
         "recognition": "TemplateMatch",
         "action": "Click",
         "template": [
-            "../image/BackBtn.png"
+            "../image/UseStamina/repeatIcon.png"
         ],
+        "roi": [
+            830,
+            550,
+            50,
+            50
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3365,
+                "y": 750
+            }
+        },
         "next": [
-            "US_goBack"
-        ],
-        "post_delay": 500
+            "RepeatSetting_41"
+        ]
     },
-    "US_clickHomeBtn": {
+    "RepeatSetting_41": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            888,
+            622,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3698,
+                "y": 547
+            }
+        },
+        "next": [
+            "RepeatSetting_42"
+        ]
+    },
+    "RepeatSetting_42": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            900,
+            435,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3971,
+                "y": 546
+            }
+        },
+        "next": [
+            "RepeatSetting_43"
+        ]
+    },
+    "RepeatSetting_43": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "开始挑战"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4251,
+                "y": 544
+            }
+        },
+        "next": [
+            "RepeatSetting_44"
+        ],
+        "interrupt": [
+            "RepeatReady"
+        ]
+    },
+    "RepeatSetting_44": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4535,
+                "y": 542
+            }
+        },
+        "next": [
+            "RepeatSetting_31"
+        ]
+    },
+    "RepeatReady": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "行动开始"
+        ],
+        "pre_delay": 400,
+        "post_delay": 30000,
+        "__yamaape": {
+            "position": {
+                "x": 4922,
+                "y": 827
+            }
+        },
+        "next": [
+            "BattleResult"
+        ],
+        "interrupt": [
+            "BattleDelay"
+        ]
+    },
+    "RepeatSetting_31": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            888,
+            622,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3689,
+                "y": 747
+            }
+        },
+        "next": [
+            "RepeatSetting_32"
+        ]
+    },
+    "BattleResult": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            1030,
+            610,
+            220,
+            150
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 5497,
+                "y": 830
+            }
+        },
+        "next": [
+            "BattleResult_Delay"
+        ]
+    },
+    "BattleDelay": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "post_delay": 5000,
+        "__yamaape": {
+            "position": {
+                "x": 5206,
+                "y": 763
+            }
+        },
+        "next": [
+            "BattleResult"
+        ],
+        "interrupt": [
+            "BattleDelay2"
+        ]
+    },
+    "RepeatSetting_32": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            900,
+            482,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3965,
+                "y": 748
+            }
+        },
+        "next": [
+            "RepeatSetting_33"
+        ]
+    },
+    "BattleResult_Delay": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "开始挑战"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 5756,
+                "y": 842
+            }
+        },
+        "next": [
+            "RepeatSetting_41"
+        ]
+    },
+    "BattleDelay2": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "post_delay": 5000,
+        "__yamaape": {
+            "position": {
+                "x": 5212,
+                "y": 947
+            }
+        },
+        "next": [
+            "BattleDelay"
+        ]
+    },
+    "ChipList": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "卡带产线"
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 2532,
+                "y": 439
+            }
+        },
+        "next": [
+            "ChipList_SwipeTop"
+        ]
+    },
+    "ChipList_SwipeTop": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            75,
+            200,
+            0,
+            0
+        ],
+        "end": [
+            75,
+            800,
+            0,
+            0
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2801,
+                "y": 353
+            }
+        },
+        "next": [
+            "ChipList_ChipCheck"
+        ]
+    },
+    "ChipList_ChipCheck": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 3073,
+                "y": 305
+            }
+        },
+        "next": [
+            "ChipList_SelectChip"
+        ],
+        "interrupt": [
+            "ChipList_SwipeDown"
+        ]
+    },
+    "ChipList_SelectChip": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/chip/09.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3337,
+                "y": 202
+            }
+        },
+        "next": [
+            "StageLevel"
+        ]
+    },
+    "ChipList_SwipeDown": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "begin": [
+            75,
+            530,
+            0,
+            0
+        ],
+        "end": [
+            75,
+            430,
+            0,
+            0
+        ],
+        "duration": 400,
+        "__yamaape": {
+            "position": {
+                "x": 3330,
+                "y": 368
+            }
+        },
+        "next": [
+            "ChipList_ChipCheck"
+        ]
+    },
+    "RepeatSetting_33": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "开始挑战"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4246,
+                "y": 742
+            }
+        },
+        "next": [
+            "RepeatSetting_34"
+        ],
+        "interrupt": [
+            "RepeatReady"
+        ]
+    },
+    "RepeatSetting_34": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4535,
+                "y": 742
+            }
+        },
+        "next": [
+            "RepeatSetting_21"
+        ]
+    },
+    "RepeatSetting_21": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            888,
+            622,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3690,
+                "y": 938
+            }
+        },
+        "next": [
+            "RepeatSetting_22"
+        ]
+    },
+    "RepeatSetting_22": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            900,
+            532,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3965,
+                "y": 938
+            }
+        },
+        "next": [
+            "RepeatSetting_23"
+        ]
+    },
+    "RepeatSetting_23": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "开始挑战"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4248,
+                "y": 934
+            }
+        },
+        "next": [
+            "RepeatSetting_24"
+        ],
+        "interrupt": [
+            "RepeatReady"
+        ]
+    },
+    "RepeatSetting_24": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4532,
+                "y": 930
+            }
+        },
+        "next": [
+            "RepeatSetting_11"
+        ]
+    },
+    "RepeatSetting_11": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            888,
+            622,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3690,
+                "y": 1128
+            }
+        },
+        "next": [
+            "RepeatSetting_12"
+        ]
+    },
+    "RepeatSetting_12": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            900,
+            568,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3969,
+                "y": 1126
+            }
+        },
+        "next": [
+            "RepeatSetting_13"
+        ]
+    },
+    "RepeatSetting_13": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "开始挑战"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4246,
+                "y": 1131
+            }
+        },
+        "next": [
+            "RepeatSetting_14"
+        ],
+        "interrupt": [
+            "RepeatReady"
+        ]
+    },
+    "RepeatSetting_14": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4531,
+                "y": 1128
+            }
+        },
+        "next": [
+            "UseStamina_Out"
+        ]
+    },
+    "UseStamina_Out": {
         "recognition": "TemplateMatch",
         "action": "Click",
         "template": [
             "../image/HomeBtn.png"
         ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 6109,
+                "y": 1572
+            }
+        },
         "next": [
-            "US_goBack"
-        ],
-        "post_delay": 500
+            "UseStamina_End"
+        ]
     },
-    "US_clickOther": {
+    "StageMenu_SwipeDown": {
         "recognition": "DirectHit",
-        "action": "Click",
-        "target_offset": [
-            104, 
-            39, 
-            1, 
-            1
-        ],
-        "next": [
-            "US_goBack"
-        ],
-        "post_delay": 500
-    },
-
-    "US_rootAttack": {
-        "next": [
-            "US_stage_경험치"
-        ],
-        "on_error": [
-            "US_goBack"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_경험치": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "象征车厢"
-        ],
-        "next": [
-            "US_stage_경험치1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_경험치1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 0,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_골드": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "象征车厢"
-        ],
-        "next": [
-            "US_stage_골드1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_골드1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 1,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_정예_주황": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "分析车厢"
-        ],
-        "next": [
-            "US_stage_정예_주황1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_정예_주황1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 0,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_정예_파랑": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "分析车厢"
-        ],
-        "next": [
-            "US_stage_정예_파랑1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_정예_파랑1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 1,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_정예_초록": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "分析车厢"
-        ],
-        "next": [
-            "US_stage_정예_초록1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_정예_초록1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 2,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_정예_노랑": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "分析车厢"
-        ],
-        "next": [
-            "US_stage_정예_노랑1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_정예_노랑1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 3,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_정예_보라": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "分析车厢"
-        ],
-        "next": [
-            "US_stage_정예_보라_swipe"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_정예_보라_swipe": {
         "action": "Swipe",
         "begin": [
-            1013, 612, 1, 1
+            1017,
+            590,
+            0,
+            0
         ],
         "end": [
-            1013, 223, 1, 1
+            1017,
+            210,
+            0,
+            0
         ],
-        "duration": 300,
+        "__yamaape": {
+            "position": {
+                "x": 1855,
+                "y": 773
+            }
+        },
         "next": [
-            "US_stage_정예_보라1"
-        ],
-        "post_delay": 500
+            "SelectStage"
+        ]
     },
-    "US_stage_정예_보라1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 3,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_스킬_공격": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "景观车厢"
-        ],
-        "next": [
-            "US_stage_스킬_공격1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_스킬_공격1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 0,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_스킬_특수": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "景观车厢"
-        ],
-        "next": [
-            "US_stage_스킬_특수1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_스킬_특수1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 1,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_스킬_저격": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "景观车厢"
-        ],
-        "next": [
-            "US_stage_스킬_저격1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_스킬_저격1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 2,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_스킬_보호": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "景观车厢"
-        ],
-        "next": [
-            "US_stage_스킬_보호1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_스킬_보호1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 3,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_스킬_보조": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "景观车厢"
-        ],
-        "next": [
-            "US_stage_스킬_보조_swipe"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_스킬_보조_swipe": {
-        "action": "Swipe",
-        "begin": [
-            1013, 612, 1, 1
-        ],
-        "end": [
-            1013, 223, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_스킬_보조1"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_스킬_보조1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 3,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "卡带车厢"
-        ],
-        "next": [
-            "US_stage_카세트1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_카세트1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 0,
-        "next": [
-            "US_stage_카세트_역전_swipe"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_카세트_역전_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 198, 1, 1
-        ],
-        "end": [
-            71, 496, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_역전"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_역전": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_역전.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트_실루엣_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 198, 1, 1
-        ],
-        "end": [
-            71, 496, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_실루엣"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_실루엣": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_실루엣.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트_주먹_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 198, 1, 1
-        ],
-        "end": [
-            71, 496, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_주먹"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_주먹": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_주먹.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트_퍼볼_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 198, 1, 1
-        ],
-        "end": [
-            71, 496, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_퍼볼"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_퍼볼": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_퍼볼.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트_핑크_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 198, 1, 1
-        ],
-        "end": [
-            71, 496, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_핑크_swipe1"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_핑크_swipe1": {
-        "action": "Swipe",
-        "begin": [
-            71, 496, 1, 1
-        ],
-        "end": [
-            71, 420, 1, 1
-        ],
-        "duration": 100,
-        "next": [
-            "US_stage_카세트_핑크"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_핑크": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_핑크.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트_보철_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 496, 1, 1
-        ],
-        "end": [
-            71, 198, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_보철"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_보철": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_보철.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트_전자_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 496, 1, 1
-        ],
-        "end": [
-            71, 198, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_전자"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_전자": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_전자.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트_코로나_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 496, 1, 1
-        ],
-        "end": [
-            71, 198, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_코로나"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_코로나": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_코로나.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트_성하_swipe": {
-        "action": "Swipe",
-        "begin": [
-            71, 496, 1, 1
-        ],
-        "end": [
-            71, 198, 1, 1
-        ],
-        "duration": 300,
-        "next": [
-            "US_stage_카세트_성하"
-        ],
-        "post_delay": 500
-    },
-    "US_stage_카세트_성하": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/카세트_성하.png"
-        ],
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_카세트경험치": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "卡带车厢"
-        ],
-        "next": [
-            "US_stage_카세트경험치1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_카세트경험치1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "前往"
-        ],
-        "order_by": "Vertical",
-        "index": 1,
-        "next": [
-            "US_stage_ready"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_ready": {
-        "next": [
-            "US_stage_level_1"
-        ],
-        "on_error": [
-            "US_goBack"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_stage_level_1": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "-1"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_level_2": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "-2"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_level_3": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "-3"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_level_4": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "-4"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-    "US_stage_level_5": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "-5"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000
-    },
-
-    "US_exit": {
-        "action": "StopTask"
+    "UseStamina_End": {
+        "recognition": "DirectHit",
+        "action": "StopTask",
+        "__yamaape": {
+            "position": {
+                "x": 6431,
+                "y": 1569
+            }
+        }
     }
 }

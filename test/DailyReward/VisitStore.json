@@ -1,0 +1,759 @@
+{
+    "VisitStore": {
+        "next": [
+            "VS_go_store"
+        ]
+    },
+
+    "VS_go_store": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "采购中心"
+        ],
+        "next": [
+            "VS_check_store"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_check_store": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "补给包"
+        ],
+        "next": [
+            "VS_store_click_menu"
+        ]
+    },
+    "VS_store_click_menu": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "补给包"
+        ],
+        "next": [
+            "VS_check_store2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+
+    "VS_check_store2": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "特惠活动"
+        ],
+        "next": [
+            "VS_store_click_menu2"
+        ]
+    },
+    "VS_store_click_menu2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "特惠活动"
+        ],
+        "next": [
+            "VS_store_check_item"
+        ],
+        "timeout": 1500,
+        "on_error": [
+            "VS_store2_check_menu"
+        ]
+    },
+
+    "VS_store_check_item": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "免费"
+        ],
+        "next": [
+            "VS_store_click_item"
+        ]
+    },
+    "VS_store_click_item": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "免费"
+        ],
+        "next": [
+            "VS_store_check_item2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+
+    "VS_store_check_item2": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "免费购买"
+        ],
+        "next": [
+            "VS_store_click_item2"
+        ]
+    },
+    "VS_store_click_item2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "免费购买"
+        ],
+        "next": [
+            "VS_store_check_reward"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store_check_reward": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store_click_reward"
+        ]
+    },
+    "VS_store_click_reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store2_check_menu"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+
+
+
+    "VS_store2_check_menu": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "流动市场"
+        ],
+        "next": [
+            "VS_store2_click_menu"
+        ]
+    },
+    "VS_store2_click_menu": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "流动市场"
+        ],
+        "next": [
+            "VS_store2_check_menu2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+
+    "VS_store2_check_menu2": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "特价交易所"
+        ],
+        "next": [
+            "VS_store2_click_menu2"
+        ]
+    },
+    "VS_store2_click_menu2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "特价交易所"
+        ],
+        "next": [
+            "VS_store2_check_item"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+
+    "VS_store2_check_item": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "剩余1/1"
+        ],
+        "next": [
+            "VS_store2_item1"
+        ]
+    },
+
+    "VS_store2_item1": {
+        "next": [
+            "VS_store2_check_soldout_item1"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_soldout_item1": {
+        "recognition": "OCR",
+        "expected": [
+            "已售馨"
+        ],
+        "roi": [
+            359,
+            464,
+            120,
+            100
+        ],
+        "action": "DoNothing",
+        "next": [
+            "VS_store2_item2"
+        ],
+        "interrupt": [
+            "VS_store2_click_item1"
+        ]
+    },
+    "VS_store2_click_item1": {
+        "action": "Click",
+        "target_offset": [
+            427, 
+            522,
+            1,
+            1
+        ],
+        "next": [
+            "VS_store2_check_popup_item1"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_store2_click_item2"
+        ]
+    },
+    "VS_store2_check_popup_item1": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "VS_store2_check_item1"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_store2_skip_item1"
+        ]
+    },
+    "VS_store2_check_item1": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/StoreGold.png"
+        ],
+        "roi": [
+            758, 565, 40, 40
+        ],
+        "next": [
+            "VS_store2_buy_item1"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_skip_item1": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "VS_store2_click_item2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_buy_item1": {
+        "action": "Click",
+        "target_offset": [
+            758, 
+            565,
+            1,
+            1
+        ],
+        "next": [
+            "VS_store2_check_reward_item1"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_reward_item1": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store2_click_reward_item1"
+        ]
+    },
+    "VS_store2_click_reward_item1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store2_item2"
+        ]
+    },
+
+    "VS_store2_item2": {
+        "next": [
+            "VS_store2_check_soldout_item2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_soldout_item2": {
+        "recognition": "OCR",
+        "expected": [
+            "已售馨"
+        ],
+        "roi": [
+            586, 
+            464,
+            120,
+            100
+        ],
+        "action": "DoNothing",
+        "next": [
+            "VS_store2_item3"
+        ],
+        "interrupt": [
+            "VS_store2_click_item2"
+        ]
+    },
+    "VS_store2_click_item2": {
+        "action": "Click",
+        "target_offset": [
+            640, 
+            522,
+            1,
+            1
+        ],
+        "next": [
+            "VS_store2_check_popup_item2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_store2_click_item3"
+        ]
+    },
+    "VS_store2_check_popup_item2": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "VS_store2_check_item2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_store2_skip_item2"
+        ]
+    },
+    "VS_store2_check_item2": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/StoreGold.png"
+        ],
+        "roi": [
+            758, 565, 40, 40
+        ],
+        "next": [
+            "VS_store2_buy_item2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_skip_item2": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "VS_store2_click_item3"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_buy_item2": {
+        "action": "Click",
+        "target_offset": [
+            758, 
+            565,
+            1,
+            1
+        ],
+        "next": [
+            "VS_store2_check_reward_item2"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_reward_item2": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store2_click_reward_item2"
+        ]
+    },
+    "VS_store2_click_reward_item2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store2_item3"
+        ]
+    },
+
+    "VS_store2_item3": {
+        "next": [
+            "VS_store2_check_soldout_item3"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_soldout_item3": {
+        "recognition": "OCR",
+        "expected": [
+            "已售馨"
+        ],
+        "roi": [
+            810, 
+            464,
+            120,
+            100
+        ],
+        "action": "DoNothing",
+        "next": [
+            "VS_store2_item4"
+        ],
+        "interrupt": [
+            "VS_store2_click_item3"
+        ]
+    },
+    "VS_store2_click_item3": {
+        "action": "Click",
+        "target_offset": [
+            870, 
+            522,
+            1,
+            1
+        ],
+        "next": [
+            "VS_store2_check_popup_item3"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_store2_click_item4"
+        ]
+    },
+    "VS_store2_check_popup_item3": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "VS_store2_check_item3"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_store2_skip_item3"
+        ]
+    },
+    "VS_store2_check_item3": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/StoreGold.png"
+        ],
+        "roi": [
+            758, 565, 40, 40
+        ],
+        "next": [
+            "VS_store2_buy_item3"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_skip_item3": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "VS_store2_click_item4"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_buy_item3": {
+        "action": "Click",
+        "target_offset": [
+            758, 
+            565,
+            1,
+            1
+        ],
+        "next": [
+            "VS_store2_check_reward_item3"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_reward_item3": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store2_click_reward_item3"
+        ]
+    },
+    "VS_store2_click_reward_item3": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store2_item4"
+        ]
+    },
+
+    "VS_store2_item4": {
+        "next": [
+            "VS_store2_check_soldout_item4"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_soldout_item4": {
+        "recognition": "OCR",
+        "expected": [
+            "已售馨"
+        ],
+        "roi": [
+            1040, 
+            464,
+            120,
+            100
+        ],
+        "action": "DoNothing",
+        "next": [
+            "VS_check_homeBtn"
+        ],
+        "interrupt": [
+            "VS_store2_click_item4"
+        ]
+    },
+    "VS_store2_click_item4": {
+        "action": "Click",
+        "target_offset": [
+            1090, 
+            522,
+            1,
+            1
+        ],
+        "next": [
+            "VS_store2_check_popup_item4"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_popup_item4": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "VS_store2_check_item4"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_store2_skip_item4"
+        ]
+    },
+    "VS_store2_check_item4": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/StoreGold.png"
+        ],
+        "roi": [
+            758, 565, 40, 40
+        ],
+        "next": [
+            "VS_store2_buy_item4"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_skip_item4": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "next": [
+            "VS_check_homeBtn"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_buy_item4": {
+        "action": "Click",
+        "target_offset": [
+            758, 
+            565,
+            1,
+            1
+        ],
+        "next": [
+            "VS_store2_check_reward_item4"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_store2_check_reward_item4": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_store2_click_reward_item4"
+        ]
+    },
+    "VS_store2_click_reward_item4": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VS_check_homeBtn"
+        ]
+    },
+
+
+
+    "VS_check_homeBtn": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "next": [
+            "VS_click_homeBtn"
+        ],
+        "timeout": 1000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+    "VS_click_homeBtn": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "next": [
+            "VS_end"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "VS_error"
+        ]
+    },
+
+
+
+    "VS_end": {
+        "recognition": "OCR",
+        "action": "StopTask",
+        "expected": [
+            "城市探索"
+        ]
+    },
+
+    "VS_error": {
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    }
+}

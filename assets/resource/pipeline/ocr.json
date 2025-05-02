@@ -1,0 +1,9 @@
+{
+    "ocr": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            ""
+        ]
+    }
+}

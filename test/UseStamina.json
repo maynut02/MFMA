@@ -1,0 +1,833 @@
+{
+    "UseStamina": {
+        "next": [
+            "US_isAttack"
+        ],
+        "interrupt": [
+            "US_goBack"
+        ]
+    },
+
+    "US_isAttack": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "象征车厢"
+        ],
+        "next": [
+            "US_rootAttack"
+        ],
+        "post_delay": 500,
+        "timeout": 2000
+    },
+    "US_isHome": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "城市探索"
+        ],
+        "next": [
+            "US_goAttack"
+        ],
+        "post_delay": 500,
+        "timeout": 2000
+    },
+    "US_goBack": {
+        "next": [
+            "US_isAttack",
+            "US_isHome"
+        ],
+        "interrupt": [
+            "US_clickHomeBtn",
+            "US_clickBackBtn",
+            "US_clickOther"
+        ],
+        "timeout": 10000
+    },
+    "US_goAttack": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "战略行动"
+        ],
+        "next": [
+            "US_isAttack"
+        ],
+        "on_error": [
+            "US_goBack"
+        ],
+        "post_delay": 500,
+        "timeout": 5000
+    },
+
+    "US_clickBackBtn": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/BackBtn.png"
+        ],
+        "next": [
+            "US_goBack"
+        ],
+        "post_delay": 500
+    },
+    "US_clickHomeBtn": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "next": [
+            "US_goBack"
+        ],
+        "post_delay": 500
+    },
+    "US_clickOther": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target_offset": [
+            104, 
+            39, 
+            1, 
+            1
+        ],
+        "next": [
+            "US_goBack"
+        ],
+        "post_delay": 500
+    },
+
+    "US_rootAttack": {
+        "next": [
+            "US_stage_경험치"
+        ],
+        "on_error": [
+            "US_goBack"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_경험치": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "象征车厢"
+        ],
+        "next": [
+            "US_stage_경험치1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_경험치1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 0,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_골드": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "象征车厢"
+        ],
+        "next": [
+            "US_stage_골드1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_골드1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 1,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_정예_주황": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "分析车厢"
+        ],
+        "next": [
+            "US_stage_정예_주황1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_정예_주황1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 0,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_정예_파랑": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "分析车厢"
+        ],
+        "next": [
+            "US_stage_정예_파랑1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_정예_파랑1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 1,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_정예_초록": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "分析车厢"
+        ],
+        "next": [
+            "US_stage_정예_초록1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_정예_초록1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 2,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_정예_노랑": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "分析车厢"
+        ],
+        "next": [
+            "US_stage_정예_노랑1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_정예_노랑1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 3,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_정예_보라": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "分析车厢"
+        ],
+        "next": [
+            "US_stage_정예_보라_swipe"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_정예_보라_swipe": {
+        "action": "Swipe",
+        "begin": [
+            1013, 612, 1, 1
+        ],
+        "end": [
+            1013, 223, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_정예_보라1"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_정예_보라1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 3,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_스킬_공격": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "景观车厢"
+        ],
+        "next": [
+            "US_stage_스킬_공격1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_스킬_공격1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 0,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_스킬_특수": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "景观车厢"
+        ],
+        "next": [
+            "US_stage_스킬_특수1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_스킬_특수1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 1,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_스킬_저격": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "景观车厢"
+        ],
+        "next": [
+            "US_stage_스킬_저격1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_스킬_저격1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 2,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_스킬_보호": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "景观车厢"
+        ],
+        "next": [
+            "US_stage_스킬_보호1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_스킬_보호1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 3,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_스킬_보조": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "景观车厢"
+        ],
+        "next": [
+            "US_stage_스킬_보조_swipe"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_스킬_보조_swipe": {
+        "action": "Swipe",
+        "begin": [
+            1013, 612, 1, 1
+        ],
+        "end": [
+            1013, 223, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_스킬_보조1"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_스킬_보조1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 3,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "卡带车厢"
+        ],
+        "next": [
+            "US_stage_카세트1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_카세트1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 0,
+        "next": [
+            "US_stage_카세트_역전_swipe"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_카세트_역전_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 198, 1, 1
+        ],
+        "end": [
+            71, 496, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_역전"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_역전": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_역전.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트_실루엣_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 198, 1, 1
+        ],
+        "end": [
+            71, 496, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_실루엣"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_실루엣": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_실루엣.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트_주먹_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 198, 1, 1
+        ],
+        "end": [
+            71, 496, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_주먹"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_주먹": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_주먹.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트_퍼볼_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 198, 1, 1
+        ],
+        "end": [
+            71, 496, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_퍼볼"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_퍼볼": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_퍼볼.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트_핑크_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 198, 1, 1
+        ],
+        "end": [
+            71, 496, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_핑크_swipe1"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_핑크_swipe1": {
+        "action": "Swipe",
+        "begin": [
+            71, 496, 1, 1
+        ],
+        "end": [
+            71, 420, 1, 1
+        ],
+        "duration": 100,
+        "next": [
+            "US_stage_카세트_핑크"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_핑크": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_핑크.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트_보철_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 496, 1, 1
+        ],
+        "end": [
+            71, 198, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_보철"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_보철": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_보철.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트_전자_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 496, 1, 1
+        ],
+        "end": [
+            71, 198, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_전자"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_전자": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_전자.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트_코로나_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 496, 1, 1
+        ],
+        "end": [
+            71, 198, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_코로나"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_코로나": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_코로나.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트_성하_swipe": {
+        "action": "Swipe",
+        "begin": [
+            71, 496, 1, 1
+        ],
+        "end": [
+            71, 198, 1, 1
+        ],
+        "duration": 300,
+        "next": [
+            "US_stage_카세트_성하"
+        ],
+        "post_delay": 500
+    },
+    "US_stage_카세트_성하": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/카세트_성하.png"
+        ],
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_카세트경험치": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "卡带车厢"
+        ],
+        "next": [
+            "US_stage_카세트경험치1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_카세트경험치1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "前往"
+        ],
+        "order_by": "Vertical",
+        "index": 1,
+        "next": [
+            "US_stage_ready"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_ready": {
+        "next": [
+            "US_stage_level_1"
+        ],
+        "on_error": [
+            "US_goBack"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_stage_level_1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-1"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_level_2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-2"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_level_3": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-3"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_level_4": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-4"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+    "US_stage_level_5": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-5"
+        ],
+        "post_delay": 1000,
+        "timeout": 3000
+    },
+
+    "US_exit": {
+        "action": "StopTask"
+    }
+}

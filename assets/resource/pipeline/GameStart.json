@@ -1,451 +1,633 @@
 {
+    "__yamaape_config_GameStart": {
+        "filename": "GameStart",
+        "version": "v0.3.2",
+        "export": ""
+    },
     "GameStart": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 1739,
+                "y": 897
+            }
+        },
         "next": [
-            "GS_isLobby"
+            "LoadingCheck"
         ]
     },
-
-    "GS_startApp": {
-        "action": "StartApp",
-        "package": "com.firewick.p42",
-        "post_delay": 5000,
+    "LoadingCheck": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 2371,
+                "y": 902
+            }
+        },
         "next": [
-            "GS_isLobby"
-        ]   
-    },
-    "GS_startApp_bili": {
-        "action": "StartApp",
-        "package": "com.firewick.p42.bilibili",
-        "post_delay": 5000,
-        "next": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_isLoading": {
-        "next": [
-            "GS_check_connect",
-            "GS_check_login",
-            "GS_check_update",
-            "GS_check_terms"
+            "RunningCheck",
+            "Loading_Terms",
+            "Loading_Update",
+            "Loading_Login",
+            "Loading_LoginToast",
+            "Loading_Connect",
+            "Loading_Check"
         ],
-        "timeout": 60000,
         "interrupt": [
-            "GS_startApp",
-            "GS_startApp_bili"
+            "StartApp"
         ]
     },
-
-    "GS_check_terms": {
+    "RunningCheck": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "uid"
+        ],
+        "roi": [
+            10,
+            700,
+            120,
+            30
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2699,
+                "y": 695
+            }
+        },
+        "next": [
+            "Running_Lobby",
+            "Running_Popup",
+            "Running_Reward",
+            "Running_Alert",
+            "Running_HomeButton",
+            "Running_BackButton"
+        ],
+        "interrupt": [
+            "Loading_ReturnCheck"
+        ]
+    },
+    "Loading_Terms": {
         "recognition": "OCR",
         "action": "DoNothing",
         "expected": [
             "同意"
         ],
+        "__yamaape": {
+            "position": {
+                "x": 2857,
+                "y": 1164
+            }
+        },
         "next": [
-            "GS_click_terms"
-        ],
-        "post_delay": 500
+            "Loading_ClickTerms"
+        ]
     },
-    "GS_click_terms": {
+    "Loading_Update": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "新版本资源"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2854,
+                "y": 1337
+            }
+        },
+        "next": [
+            "Loading_ClickUpdate"
+        ]
+    },
+    "Loading_Login": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "登录记录"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2859,
+                "y": 1552
+            }
+        },
+        "next": [
+            "Loading_ClickLogin"
+        ]
+    },
+    "Loading_LoginToast": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "切换账号"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2862,
+                "y": 1750
+            }
+        },
+        "next": [
+            "Loading_ReturnCheck"
+        ]
+    },
+    "Loading_Connect": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "校准现实"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2868,
+                "y": 1952
+            }
+        },
+        "next": [
+            "Loading_ClickConnect"
+        ]
+    },
+    "Loading_Check": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "版本号"
+        ],
+        "roi": [
+            10,
+            10,
+            150,
+            40
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2861,
+                "y": 2160
+            }
+        },
+        "next": [
+            "Loading_ReturnCheck"
+        ]
+    },
+    "StartApp": {
+        "recognition": "DirectHit",
+        "action": "StartApp",
+        "package": "com.firewick.p42.bilibili",
+        "__yamaape": {
+            "position": {
+                "x": 2042,
+                "y": 1154
+            }
+        },
+        "next": [
+            "StartApp_Delay"
+        ]
+    },
+    "Running_Lobby": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "城市探索"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3281,
+                "y": -606
+            }
+        },
+        "next": [
+            "Running_Lobby_2"
+        ],
+        "interrupt": [
+            "Running_Lobby_Fail"
+        ]
+    },
+    "Running_Popup": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3288,
+                "y": -348
+            }
+        },
+        "next": [
+            "Running_PopupClose"
+        ]
+    },
+    "Running_Reward": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品",
+            "点击以继续"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3293,
+                "y": -123
+            }
+        },
+        "next": [
+            "Running_GetReward"
+        ]
+    },
+    "Running_Alert": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "注意！"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3290,
+                "y": 206
+            }
+        },
+        "next": [
+            "AlertCheck_Ok",
+            "AlertCheck_Cancel"
+        ]
+    },
+    "Running_HomeButton": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3297,
+                "y": 535
+            }
+        },
+        "next": [
+            "Running_GoHome"
+        ]
+    },
+    "Running_BackButton": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/BackBtn.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3298,
+                "y": 748
+            }
+        },
+        "next": [
+            "Running_GoBack"
+        ]
+    },
+    "Loading_ReturnCheck": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "post_delay": 2000,
+        "__yamaape": {
+            "position": {
+                "x": 3682,
+                "y": 1215
+            }
+        },
+        "next": [
+            "LoadingCheck"
+        ]
+    },
+    "Loading_ClickTerms": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
             "同意"
         ],
+        "__yamaape": {
+            "position": {
+                "x": 3173,
+                "y": 1162
+            }
+        },
         "next": [
-            "GS_isLoading"
-        ],
-        "post_delay": 3000
+            "Loading_ReturnCheck"
+        ]
     },
-
-    "GS_check_update": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "新版本资源"
-        ],
-        "next": [
-            "GS_click_update"
-        ],
-        "post_delay": 500
-    },
-    "GS_click_update": {
+    "Loading_ClickUpdate": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
             "确定"
         ],
+        "pre_delay": 30000,
+        "__yamaape": {
+            "position": {
+                "x": 3173,
+                "y": 1331
+            }
+        },
         "next": [
-            "GS_isLoading"
-        ],
-        "post_delay": 3000
+            "Loading_ReturnCheck"
+        ]
     },
-
-    "GS_check_login": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "登录记录"
-        ],
-        "next": [
-            "GS_click_login"
-        ],
-        "post_delay": 500
-    },
-    "GS_click_login": {
+    "Loading_ClickLogin": {
         "recognition": "TemplateMatch",
         "action": "Click",
         "template": [
             "../image/LoginBtn.png"
         ],
-        "post_delay": 3000,
+        "__yamaape": {
+            "position": {
+                "x": 3166,
+                "y": 1560
+            }
+        },
         "next": [
-            "GS_isLoading"
+            "Loading_ReturnCheck"
         ]
     },
-
-    "GS_check_connect": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "校准现实"
-        ],
-        "next": [
-            "GS_click_connect"
-        ],
-        "post_delay": 500
-    },
-    "GS_click_connect": {
+    "Loading_ClickConnect": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
             "校准现实"
         ],
+        "__yamaape": {
+            "position": {
+                "x": 3174,
+                "y": 1947
+            }
+        },
         "next": [
-            "GS_isLobby"
-        ],
-        "post_delay": 3000
-    },
-
-    "GS_isLobby": {
-        "next": [
-            "GS_check_battle",
-            "GS_check_out_battle",
-            "GS_check_out_battle2",
-            "GS_check_reward",
-            "GS_check_attend",
-            "GS_check_notify",
-            "GS_check_homeBtn",
-            "GS_check_backBtn",
-            "GS_check_popup",
-            "GS_check_cancel",
-            "GS_check_lobby"
-        ],
-        "timeout": 20000,
-        "interrupt": [
-            "GS_isLoading"
+            "Loading_ReturnCheck"
         ]
     },
-
-    "GS_check_attend": {
-        "recognition": "OCR",
+    "StartApp_Delay": {
+        "recognition": "DirectHit",
         "action": "DoNothing",
-        "expected": [
-            "每日物资配送"
-        ],
-        "post_delay": 500,
-        "timeout": 3000,
+        "post_delay": 5000,
+        "__yamaape": {
+            "position": {
+                "x": 2306,
+                "y": 1158
+            }
+        },
         "next": [
-            "GS_check_reward"
-        ],
-        "interrupt": [
-            "GS_close_popup"
-        ],
-        "on_error": [
-            "GS_isLobby"
+            "LoadingCheck"
         ]
     },
-
-    "GS_check_reward": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "获得物品"
-        ],
-        "post_delay": 500,
-        "timeout": 3000,
-        "next": [
-            "GS_close_reward"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_close_reward": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "获得物品"
-        ],
-        "post_delay": 1000,
-        "next": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_check_notify": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "活动公告"
-        ],
-        "post_delay": 500,
-        "timeout": 3000,
-        "next": [
-            "GS_close_popup"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_check_popup": {
-        "recognition": "TemplateMatch",
-        "action": "DoNothing",
-        "template": [
-            "../image/PopupClose.png"
-        ],
-        "post_delay": 500,
-        "timeout": 3000,
-        "next": [
-            "GS_close_popup"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_close_popup": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/PopupClose.png"
-        ],
-        "post_delay": 1000,
-        "next": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_check_homeBtn": {
-        "recognition": "TemplateMatch",
-        "action": "DoNothing",
-        "template": [
-            "../image/HomeBtn.png"
-        ],
-        "timeout": 3000,
-        "next": [
-            "GS_click_homeBtn"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_click_homeBtn": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/HomeBtn.png"
-        ],
-        "post_delay": 1000,
-        "next": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_check_backBtn": {
-        "recognition": "TemplateMatch",
-        "action": "DoNothing",
-        "template": [
-            "../image/BackBtn.png"
-        ],
-        "timeout": 3000,
-        "next": [
-            "GS_click_backBtn"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_click_backBtn": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/BackBtn.png"
-        ],
-        "post_delay": 1000,
-        "next": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_check_cancel": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "取消"
-        ],
-        "post_delay": 500,
-        "timeout": 3000,
-        "next": [
-            "GS_click_cancel"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_click_cancel": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "取消"
-        ],
-        "post_delay": 1000,
-        "next": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_check_battle": {
-        "recognition": "TemplateMatch",
-        "action": "DoNothing",
-        "template": [
-            "../image/BattleStop.png"
-        ],
-        "post_delay": 500,
-        "timeout": 3000,
-        "next": [
-            "GS_stop_battle"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_stop_battle": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/BattleStop.png"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000,
-        "next": [
-            "GS_out_battle"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_check_out_battle": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "结束作战",
-            "放弃作战",
-            "结束行动",
-            "结算"
-        ],
-        "post_delay": 500,
-        "timeout": 3000,
-        "next": [
-            "GS_out_battle"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_out_battle": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "结束作战",
-            "放弃作战",
-            "结束行动",
-            "结算"
-        ],
-        "post_delay": 1000,
-        "timeout": 3000,
-        "next": [
-            "GS_out_battle2"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_check_out_battle2": {
-        "recognition": "TemplateMatch",
-        "action": "DoNothing",
-        "template": [
-            "../image/OutBattle.png",
-            "../image/OutBattle2.png"
-        ],
-        "post_delay": 500,
-        "timeout": 3000,
-        "next": [
-            "GS_out_battle2"
-        ],
-        "on_error": [
-            "GS_isLobby"
-        ]
-    },
-    "GS_out_battle2": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/OutBattle.png",
-            "../image/OutBattle2.png"
-        ],
-        "post_delay": 1000,
-        "next": [
-            "GS_isLobby"
-        ]
-    },
-
-    "GS_check_lobby": {
+    "Running_Lobby_2": {
         "recognition": "OCR",
         "action": "DoNothing",
         "expected": [
             "城市探索"
         ],
-        "post_delay": 4000,
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3561,
+                "y": -728
+            }
+        },
         "next": [
-            "GS_check_lobby2"
+            "Running_Lobby_3"
         ],
         "interrupt": [
-            "GS_isLobby"
+            "Running_Lobby_Fail"
         ]
     },
-
-    "GS_check_lobby2": {
+    "Running_Lobby_Fail": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 4104,
+                "y": -537
+            }
+        },
+        "next": [
+            "Running_ReturnCheck"
+        ]
+    },
+    "Running_PopupClose": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4013,
+                "y": -349
+            }
+        },
+        "next": [
+            "Running_ReturnCheck"
+        ]
+    },
+    "Running_GetReward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品",
+            "点击以继续"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4010,
+                "y": -136
+            }
+        },
+        "next": [
+            "Running_ReturnCheck"
+        ]
+    },
+    "AlertCheck_Ok": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "是否暂时离开本次探索？",
+            "结束作战将按当前积分进行结算，确定放弃？",
+            "放弃视为作战失败，是否确定放弃？",
+            "是否退出当前剧情回顾？",
+            "是否结束当前行动，结算奖励？"
+        ],
+        "roi": [
+            50,
+            250,
+            1200,
+            170
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3648,
+                "y": 73
+            }
+        },
+        "next": [
+            "AlertCheck_ClickOk"
+        ]
+    },
+    "AlertCheck_Cancel": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "是否确认退出登录，并返回登录界面？",
+            "是否消耗"
+        ],
+        "roi": [
+            50,
+            250,
+            1200,
+            170
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3652,
+                "y": 303
+            }
+        },
+        "next": [
+            "AlertCheck_ClickCancel"
+        ]
+    },
+    "Running_GoHome": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4015,
+                "y": 539
+            }
+        },
+        "next": [
+            "Running_ReturnCheck"
+        ]
+    },
+    "Running_GoBack": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/BackBtn.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4012,
+                "y": 731
+            }
+        },
+        "next": [
+            "Running_ReturnCheck"
+        ]
+    },
+    "Running_Lobby_3": {
         "recognition": "OCR",
         "action": "DoNothing",
         "expected": [
             "城市探索"
         ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3831,
+                "y": -838
+            }
+        },
         "next": [
-            "GS_end"
+            "Running_Lobby_Success"
         ],
         "interrupt": [
-            "GS_isLobby"
+            "Running_Lobby_Fail"
         ]
     },
-
-    "GS_end": {
+    "Running_ReturnCheck": {
+        "recognition": "DirectHit",
+        "action": "DoNothing",
+        "__yamaape": {
+            "position": {
+                "x": 4537,
+                "y": -99
+            }
+        },
+        "next": [
+            "RunningCheck"
+        ]
+    },
+    "AlertCheck_ClickOk": {
         "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            50,
+            420,
+            1200,
+            240
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4011,
+                "y": 71
+            }
+        },
+        "next": [
+            "Running_ReturnCheck"
+        ]
+    },
+    "AlertCheck_ClickCancel": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "取消"
+        ],
+        "roi": [
+            50,
+            420,
+            1200,
+            240
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4010,
+                "y": 297
+            }
+        },
+        "next": [
+            "Running_ReturnCheck"
+        ]
+    },
+    "Running_Lobby_Success": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "城市探索"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4223,
+                "y": -968
+            }
+        },
+        "next": [
+            "GameStart_End"
+        ]
+    },
+    "GameStart_End": {
+        "recognition": "DirectHit",
         "action": "StopTask",
-        "expected": [
-            "城市探索"
-        ]
+        "__yamaape": {
+            "position": {
+                "x": 4598,
+                "y": -1082
+            }
+        }
     }
 }

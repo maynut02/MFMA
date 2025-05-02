@@ -1,0 +1,478 @@
+{
+    "VisitTown": {
+        "next": [
+            "VT_go_town"
+        ]
+    },
+
+    "VT_go_town": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "城市探索"
+        ],
+        "post_delay": 3000,
+        "next": [
+            "VT_check_town"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+
+    "VT_check_town": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "资源收取"
+        ],
+        "next": [
+            "VT_check_pickup"
+        ],
+        "timeout": 2000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+
+    "VT_check_pickup": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "制造订单可领取！"
+        ],
+        "next": [
+            "VT_click_pickup"
+        ]
+    },
+    "VT_click_pickup": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "制造订单可领取！"
+        ],
+        "next": [
+            "VT_root_pickup_item"
+        ]
+    },
+    "VT_root_pickup_item": {
+        "next": [
+            "VT_check_pickup_item"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VT_close_pickup"
+        ]
+    },
+    "VT_check_pickup_item": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "开始制造"
+        ],
+        "next": [
+            "VT_click_pickup_item"
+        ]
+    },
+    "VT_click_pickup_item": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "开始制造"
+        ],
+        "next": [
+            "VT_check_pickup_reward"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+    "VT_check_pickup_reward": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VT_click_pickup_reward"
+        ]
+    },
+    "VT_click_pickup_reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VT_root_pickup_item"
+        ]
+    },
+    "VT_close_pickup": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/BackBtn.png"
+        ],
+        "next": [
+            "VT_check_town2"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+
+    "VT_check_town2": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "设施管理"
+        ],
+        "next": [
+            "VT_click_manage"
+        ]
+    },
+    "VT_click_manage": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "设施管理"
+        ],
+        "next": [
+            "VT_check_manage"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+    "VT_check_manage": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "一键入驻"
+        ],
+        "next": [
+            "VT_click_manage_change"
+        ]
+    },
+    "VT_click_manage_change": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "一键入驻"
+        ],
+        "next": [
+            "VT_close_manage"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+    "VT_close_manage": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/BackBtn.png"
+        ],
+        "next": [
+            
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+
+    "VT_check_town3": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "传闻调查"
+        ],
+        "next": [
+            "VT_click_rumor"
+        ]
+    },
+    "VT_click_rumor": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "传闻调查"
+        ],
+        "next": [
+            "VT_root_rumor_item"
+        ]
+    },
+    "VT_root_rumor_item": {
+        "next": [
+            "VT_check_rumor_item",
+            "VT_check_rumor_item_note"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VT_close_rumor"
+        ]
+    },
+    "VT_check_rumor_item": {
+        "recognition": "TemplateMatch",
+        "action": "DoNothing",
+        "template": [
+            "../image/DailyReward/checkRumor.png"
+        ],
+        "next": [
+            "VT_click_rumor_item"
+        ]
+    },
+    "VT_click_rumor_item": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/DailyReward/checkRumor.png"
+        ],
+        "next": [
+            "VT_check_rumor_item_note"
+        ],
+        "timeout": 3000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+    "VT_check_rumor_item_note": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "归档"
+        ],
+        "next": [
+            "VT_click_rumor_item_note"
+        ]
+    },
+    "VT_click_rumor_item_note": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "归档"
+        ],
+        "next": [
+            "VT_check_rumor_item_reward"
+        ]
+    },
+    "VT_check_rumor_item_reward": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VT_click_rumor_item_reward"
+        ]
+    },
+    "VT_click_rumor_item_reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "获得物品"
+        ],
+        "next": [
+            "VT_root_rumor_item"
+        ]
+    },
+    "VT_close_rumor": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/BackBtn.png"
+        ],
+        "next": [
+            "VT_check_town4"
+        ],
+        "timeout": 5000,
+        "on_error": [
+            "VT_error"
+        ]
+    },
+
+    "VT_check_town4": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "城市事件"
+        ],
+        "next": [
+            "VT_click_events"
+        ]
+    },
+    "VT_click_events": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "城市事件"
+        ],
+        "post_delay": 1000,
+        "next": [
+            "VT_root_events_items"
+        ]
+    },
+    "VT_root_events_items": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target_offset": [
+            488, 
+            468,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "next": [
+            "VT_check_events_item_batttle",
+            "VT_check_events_item_story",
+            "VT_check_events_item_note",
+            "VT_check_events_item_explor"
+        ]
+    },
+    "VT_check_events_item_batttle": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "战斗"
+        ],
+        "roi": [
+            760, 
+            356,
+            300,
+            100
+        ],
+        "next": [
+            "VT_click_events_item_batttle"
+        ]
+    },
+    "VT_click_events_item_batttle": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "行动"
+        ],
+        "post_delay": 1000,
+        "next": [
+            "VT_check_events_item_battle_storySkip",
+            "VT_check_events_item_battle_ready"
+        ]
+    },
+    "VT_check_events_item_battle_storySkip": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/DailyReward/storySkip.png"
+        ],
+        "post_delay": 1000,
+        "next": [
+            "VT_check_events_item_battle_ready"
+        ]
+    },
+    "VT_check_events_item_battle_storySkip_ok": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "行动"
+        ],
+        "post_delay": 1000,
+        "next": [
+            "VT_check_events_item_battle_storySkip",
+            "VT_check_events_item_battle_ready"
+        ]
+    },
+    "VT_check_events_item_battle_ready": {
+
+    },
+    "VT_check_events_item_story": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "剧情"
+        ],
+        "roi": [
+            760, 
+            356,
+            300,
+            100
+        ],
+        "next": [
+            "VT_click_events_item_story"
+        ]
+    },
+    "VT_click_events_item_story": {
+
+    },
+    "VT_check_events_item_note": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "奖励预览"
+        ],
+        "roi": [
+            760, 
+            356,
+            300,
+            130
+        ],
+        "next": [
+            "VT_click_events_item_note"
+        ]
+    },
+    "VT_click_events_item_note": {
+
+    },
+    "VT_check_events_item_explor": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "获得物资"
+        ],
+        "roi": [
+            760, 
+            356,
+            300,
+            130
+        ],
+        "next": [
+            "VT_click_events_item_explor"
+        ]
+    },
+    "VT_click_events_item_explor": {
+
+    },
+
+
+
+
+
+    "OCR": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            ""
+        ]
+    },
+
+
+
+
+
+    "VT_end": {
+        "recognition": "OCR",
+        "action": "StopTask",
+        "expected": [
+            "城市探索"
+        ]
+    },
+
+    "VT_error": {
+        "next": [
+            "MODULE_go_lobby"
+        ]
+    }
+}
