@@ -637,6 +637,9 @@
         ]
     },
     "UseStamina_End": {
+        "focus": {
+            "succeeded": "작업 종료: 스테미너 사용"
+        },
         "recognition": "DirectHit",
         "action": "StopTask",
         "__yamaape": {

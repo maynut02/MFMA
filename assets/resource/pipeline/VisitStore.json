@@ -690,6 +690,9 @@
         ]
     },
     "VisitStore_End": {
+        "focus": {
+            "succeeded": "작업 종료: 상점 탐색"
+        },
         "recognition": "DirectHit",
         "action": "StopTask",
         "__yamaape": {
