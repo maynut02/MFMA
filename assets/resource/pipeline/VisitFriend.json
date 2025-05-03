@@ -9,7 +9,7 @@
         "template": [
             "../image/friendIcon.png"
         ],
-        "pre_delay": 400,
+        "pre_delay": 800,
         "post_delay": 1000,
         "__yamaape": {
             "position": {

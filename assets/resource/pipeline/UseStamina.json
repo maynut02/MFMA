@@ -5,30 +5,17 @@
         "export": ""
     },
     "UseStamina": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "__yamaape": {
-            "position": {
-                "x": 377,
-                "y": 589
-            }
-        },
-        "next": [
-            "GoBattle"
-        ]
-    },
-    "GoBattle": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
             "战略行动"
         ],
-        "pre_delay": 400,
+        "pre_delay": 800,
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 624,
-                "y": 539
+                "x": 563,
+                "y": 537
             }
         },
         "next": [
@@ -97,6 +84,72 @@
         },
         "next": [
             "StageLevel2"
+        ]
+    },
+    "StageLevel2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-2"
+        ],
+        "roi": [
+            40,
+            115,
+            700,
+            550
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2922,
+                "y": 521
+            }
+        },
+        "next": [
+            "StageLevel3"
+        ]
+    },
+    "StageLevel3": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-3"
+        ],
+        "roi": [
+            40,
+            115,
+            700,
+            550
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3161,
+                "y": 455
+            }
+        },
+        "next": [
+            "StageLevel4"
+        ]
+    },
+    "StageLevel4": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-4"
+        ],
+        "roi": [
+            40,
+            115,
+            700,
+            550
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3404,
+                "y": 387
+            }
+        },
+        "next": [
+            "StageLevel5"
         ]
     },
     "RepeatSetting_41": {
@@ -216,26 +269,6 @@
             "RepeatSetting_32"
         ]
     },
-    "RepeatSetting_32": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            900,
-            482,
-            1,
-            1
-        ],
-        "post_delay": 500,
-        "__yamaape": {
-            "position": {
-                "x": 3965,
-                "y": 748
-            }
-        },
-        "next": [
-            "RepeatSetting_33"
-        ]
-    },
     "BattleResult": {
         "recognition": "OCR",
         "action": "Click",
@@ -256,6 +289,26 @@
         },
         "next": [
             "BattleResult_Delay"
+        ]
+    },
+    "RepeatSetting_32": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            900,
+            482,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3965,
+                "y": 748
+            }
+        },
+        "next": [
+            "RepeatSetting_33"
         ]
     },
     "BattleResult_Delay": {
@@ -350,6 +403,64 @@
         },
         "next": [
             "RepeatSetting_23"
+        ]
+    },
+    "RepeatSetting_23": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "开始挑战"
+        ],
+        "post_delay": 500,
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 4243,
+                "y": 966
+            }
+        },
+        "next": [
+            "RepeatSetting_24"
+        ],
+        "on_error": [
+            "RepeatReady"
+        ]
+    },
+    "RepeatSetting_24": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 4532,
+                "y": 966
+            }
+        },
+        "next": [
+            "RepeatSetting_11"
+        ]
+    },
+    "RepeatSetting_11": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            888,
+            622,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3698,
+                "y": 1195
+            }
+        },
+        "next": [
+            "RepeatSetting_12"
         ]
     },
     "ChipList": {
@@ -451,64 +562,6 @@
         },
         "next": [
             "ChipList_ChipCheck"
-        ]
-    },
-    "RepeatSetting_23": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "开始挑战"
-        ],
-        "post_delay": 500,
-        "timeout": 1000,
-        "__yamaape": {
-            "position": {
-                "x": 4243,
-                "y": 966
-            }
-        },
-        "next": [
-            "RepeatSetting_24"
-        ],
-        "on_error": [
-            "RepeatReady"
-        ]
-    },
-    "RepeatSetting_24": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/PopupClose.png"
-        ],
-        "post_delay": 500,
-        "__yamaape": {
-            "position": {
-                "x": 4532,
-                "y": 966
-            }
-        },
-        "next": [
-            "RepeatSetting_11"
-        ]
-    },
-    "RepeatSetting_11": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            888,
-            622,
-            1,
-            1
-        ],
-        "post_delay": 500,
-        "__yamaape": {
-            "position": {
-                "x": 3698,
-                "y": 1195
-            }
-        },
-        "next": [
-            "RepeatSetting_12"
         ]
     },
     "RepeatSetting_12": {
@@ -673,23 +726,6 @@
             }
         }
     },
-    "RepeatSetting_StaminaOut": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/PopupClose.png"
-        ],
-        "post_delay": 1000,
-        "__yamaape": {
-            "position": {
-                "x": 4396,
-                "y": 31
-            }
-        },
-        "next": [
-            "RepeatSetting_41"
-        ]
-    },
     "RepeatSetting_UseMilk": {
         "recognition": "OCR",
         "action": "Click",
@@ -739,6 +775,23 @@
                 "y": 123
             }
         }
+    },
+    "RepeatSetting_StaminaOut": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 4396,
+                "y": 31
+            }
+        },
+        "next": [
+            "RepeatSetting_41"
+        ]
     },
     "RepeatSetting_Stamina": {
         "recognition": "TemplateMatch",
@@ -805,72 +858,6 @@
         ],
         "on_error": [
             "RepeatSetting_Stamina"
-        ]
-    },
-    "StageLevel2": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "-2"
-        ],
-        "roi": [
-            40,
-            115,
-            700,
-            550
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 2922,
-                "y": 521
-            }
-        },
-        "next": [
-            "StageLevel3"
-        ]
-    },
-    "StageLevel3": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "-3"
-        ],
-        "roi": [
-            40,
-            115,
-            700,
-            550
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 3161,
-                "y": 455
-            }
-        },
-        "next": [
-            "StageLevel4"
-        ]
-    },
-    "StageLevel4": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "-4"
-        ],
-        "roi": [
-            40,
-            115,
-            700,
-            550
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 3404,
-                "y": 387
-            }
-        },
-        "next": [
-            "StageLevel5"
         ]
     }
 }

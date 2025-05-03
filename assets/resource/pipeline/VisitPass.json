@@ -7,7 +7,7 @@
     "VisitPass": {
         "recognition": "OCR",
         "action": "Click",
-        "pre_delay": 400,
+        "pre_delay": 800,
         "post_delay": 1000,
         "expected": [
             "组长手册"
