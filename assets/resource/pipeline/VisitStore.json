@@ -95,7 +95,7 @@
         "recognition": "OCR",
         "action": "Click",
         "expected": [
-            "获得物品"
+            "点击以继续"
         ],
         "__yamaape": {
             "position": {
@@ -152,7 +152,7 @@
         ],
         "roi": [
             330,
-            410,
+            440,
             180,
             150
         ],
@@ -214,7 +214,7 @@
         ],
         "roi": [
             560,
-            410,
+            440,
             180,
             150
         ],
@@ -253,7 +253,7 @@
         ],
         "roi": [
             780,
-            410,
+            440,
             180,
             150
         ],
@@ -292,7 +292,7 @@
         ],
         "roi": [
             1010,
-            410,
+            440,
             180,
             150
         ],
@@ -431,7 +431,7 @@
         "recognition": "TemplateMatch",
         "action": "Click",
         "template": [
-            ",,/image/StoreGold.png"
+            "../image/StoreGold.png"
         ],
         "roi": [
             660,
@@ -453,7 +453,7 @@
         "recognition": "OCR",
         "action": "Click",
         "expected": [
-            "获得物品"
+            "点击以继续"
         ],
         "__yamaape": {
             "position": {
@@ -469,7 +469,7 @@
         "recognition": "TemplateMatch",
         "action": "Click",
         "template": [
-            ",,/image/StoreGold.png"
+            "../image/StoreGold.png"
         ],
         "roi": [
             660,
@@ -491,7 +491,7 @@
         "recognition": "OCR",
         "action": "Click",
         "expected": [
-            "获得物品"
+            "点击以继续"
         ],
         "__yamaape": {
             "position": {
@@ -507,7 +507,7 @@
         "recognition": "OCR",
         "action": "Click",
         "expected": [
-            "获得物品"
+            "点击以继续"
         ],
         "__yamaape": {
             "position": {
@@ -523,7 +523,7 @@
         "recognition": "TemplateMatch",
         "action": "Click",
         "template": [
-            ",,/image/StoreGold.png"
+            "../image/StoreGold.png"
         ],
         "roi": [
             660,
@@ -545,7 +545,7 @@
         "recognition": "TemplateMatch",
         "action": "Click",
         "template": [
-            ",,/image/StoreGold.png"
+            "../image/StoreGold.png"
         ],
         "roi": [
             660,
@@ -567,7 +567,7 @@
         "recognition": "OCR",
         "action": "Click",
         "expected": [
-            "获得物品"
+            "点击以继续"
         ],
         "__yamaape": {
             "position": {

@@ -1,7 +1,7 @@
 {
     "__yamaape_config_VisitMail": {
         "filename": "VisitMail",
-        "version": "v0.3.2",
+        "version": "v0.3.3",
         "export": ""
     },
     "VisitMail": {
@@ -47,12 +47,13 @@
         "recognition": "OCR",
         "action": "Click",
         "expected": [
-            "获得物品"
+            "点击以继续"
         ],
+        "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 2211,
-                "y": 681
+                "x": 2210,
+                "y": 662
             }
         },
         "next": [
@@ -68,8 +69,8 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 2503,
-                "y": 759
+                "x": 2476,
+                "y": 758
             }
         },
         "next": [
@@ -77,15 +78,12 @@
         ]
     },
     "VisitMail_End": {
-        "focus": {
-            "succeeded": "작업 종료: 우편 수령"
-        },
         "recognition": "DirectHit",
         "action": "StopTask",
         "__yamaape": {
             "position": {
-                "x": 2774,
-                "y": 760
+                "x": 2727,
+                "y": 790
             }
         }
     }

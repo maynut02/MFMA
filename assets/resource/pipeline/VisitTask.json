@@ -1,0 +1,168 @@
+{
+    "__yamaape_config_VisitTask": {
+        "filename": "VisitTask",
+        "version": "v0.3.3",
+        "export": ""
+    },
+    "VisitTask": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "任务"
+        ],
+        "pre_delay": 400,
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2042,
+                "y": 232
+            }
+        },
+        "next": [
+            "WeeklyTask"
+        ]
+    },
+    "WeeklyTask": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "每周任务"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2317,
+                "y": 239
+            }
+        },
+        "next": [
+            "WeeklyTask_Get"
+        ],
+        "interrupt": [
+            "DailyTask"
+        ]
+    },
+    "WeeklyTask_Get": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "领取全部"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2584,
+                "y": 97
+            }
+        },
+        "next": [
+            "WeeklyTask_Reward"
+        ],
+        "interrupt": [
+            "DailyTask"
+        ]
+    },
+    "DailyTask": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "每日任务"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3120,
+                "y": 235
+            }
+        },
+        "next": [
+            "DailyTask_Get"
+        ],
+        "interrupt": [
+            "VisitTask_Out"
+        ]
+    },
+    "WeeklyTask_Reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "点击以继续"
+        ],
+        "post_delay": 1000,
+        "pre_delay": 800,
+        "__yamaape": {
+            "position": {
+                "x": 2838,
+                "y": 66
+            }
+        },
+        "next": [
+            "DailyTask"
+        ]
+    },
+    "DailyTask_Get": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "领取全部"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3381,
+                "y": 78
+            }
+        },
+        "next": [
+            "DailyTask_Reward"
+        ],
+        "interrupt": [
+            "VisitTask_Out"
+        ]
+    },
+    "VisitTask_Out": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3931,
+                "y": 215
+            }
+        },
+        "next": [
+            "VisitTask_End"
+        ]
+    },
+    "DailyTask_Reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "点击以继续"
+        ],
+        "post_delay": 1000,
+        "pre_delay": 800,
+        "__yamaape": {
+            "position": {
+                "x": 3651,
+                "y": 49
+            }
+        },
+        "next": [
+            "VisitTask_Out"
+        ]
+    },
+    "VisitTask_End": {
+        "recognition": "DirectHit",
+        "action": "StopTask",
+        "__yamaape": {
+            "position": {
+                "x": 4199,
+                "y": 246
+            }
+        }
+    }
+}

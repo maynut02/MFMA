@@ -1,7 +1,7 @@
 {
     "__yamaape_config_GameStart": {
         "filename": "GameStart",
-        "version": "v0.3.2",
+        "version": "v0.3.3",
         "export": ""
     },
     "GameStart": {
@@ -9,8 +9,8 @@
         "action": "DoNothing",
         "__yamaape": {
             "position": {
-                "x": 1739,
-                "y": 897
+                "x": 1724,
+                "y": 960
             }
         },
         "next": [
@@ -22,8 +22,8 @@
         "action": "DoNothing",
         "__yamaape": {
             "position": {
-                "x": 2371,
-                "y": 902
+                "x": 2313,
+                "y": 958
             }
         },
         "next": [
@@ -53,17 +53,18 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 2699,
-                "y": 695
+                "x": 2825,
+                "y": 598
             }
         },
         "next": [
             "Running_Lobby",
+            "LoginEvent_v1.2",
             "Running_Popup",
             "Running_Reward",
             "Running_Alert",
-            "Running_HomeButton",
-            "Running_BackButton"
+            "Running_GoHome",
+            "Running_GoBack"
         ],
         "interrupt": [
             "Loading_ReturnCheck"
@@ -71,18 +72,18 @@
     },
     "Loading_Terms": {
         "recognition": "OCR",
-        "action": "DoNothing",
+        "action": "Click",
         "expected": [
             "同意"
         ],
         "__yamaape": {
             "position": {
-                "x": 2857,
-                "y": 1164
+                "x": 2851,
+                "y": 1158
             }
         },
         "next": [
-            "Loading_ClickTerms"
+            "Loading_ReturnCheck"
         ]
     },
     "Loading_Update": {
@@ -135,18 +136,19 @@
     },
     "Loading_Connect": {
         "recognition": "OCR",
-        "action": "DoNothing",
+        "action": "Click",
         "expected": [
             "校准现实"
         ],
+        "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 2868,
-                "y": 1952
+                "x": 2867,
+                "y": 1937
             }
         },
         "next": [
-            "Loading_ClickConnect"
+            "Loading_ReturnCheck"
         ]
     },
     "Loading_Check": {
@@ -163,8 +165,8 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 2861,
-                "y": 2160
+                "x": 2866,
+                "y": 2154
             }
         },
         "next": [
@@ -194,48 +196,64 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 3281,
-                "y": -606
+                "x": 3287,
+                "y": -551
             }
         },
         "next": [
             "Running_Lobby_2"
         ],
         "interrupt": [
-            "Running_Lobby_Fail"
+            "Running_ReturnCheck"
+        ]
+    },
+    "LoginEvent_v1.2": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "多年前埋下的诉状"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3626,
+                "y": 826
+            }
+        },
+        "next": [
+            "LoginEvent_Day1"
         ]
     },
     "Running_Popup": {
         "recognition": "TemplateMatch",
-        "action": "DoNothing",
+        "action": "Click",
         "template": [
             "../image/PopupClose.png"
         ],
         "__yamaape": {
             "position": {
-                "x": 3288,
-                "y": -348
+                "x": 3284,
+                "y": -341
             }
         },
         "next": [
-            "Running_PopupClose"
+            "Running_ReturnCheck"
         ]
     },
     "Running_Reward": {
         "recognition": "OCR",
-        "action": "DoNothing",
+        "action": "Click",
         "expected": [
-            "获得物品",
             "点击以继续"
         ],
         "__yamaape": {
             "position": {
                 "x": 3293,
-                "y": -123
+                "y": -158
             }
         },
         "next": [
-            "Running_GetReward"
+            "Running_ReturnCheck"
         ]
     },
     "Running_Alert": {
@@ -246,8 +264,8 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 3290,
-                "y": 206
+                "x": 3292,
+                "y": 165
             }
         },
         "next": [
@@ -255,36 +273,36 @@
             "AlertCheck_Cancel"
         ]
     },
-    "Running_HomeButton": {
+    "Running_GoHome": {
         "recognition": "TemplateMatch",
-        "action": "DoNothing",
+        "action": "Click",
         "template": [
             "../image/HomeBtn.png"
         ],
         "__yamaape": {
             "position": {
-                "x": 3297,
-                "y": 535
+                "x": 3618,
+                "y": 465
             }
         },
         "next": [
-            "Running_GoHome"
+            "Running_ReturnCheck"
         ]
     },
-    "Running_BackButton": {
+    "Running_GoBack": {
         "recognition": "TemplateMatch",
-        "action": "DoNothing",
+        "action": "Click",
         "template": [
             "../image/BackBtn.png"
         ],
         "__yamaape": {
             "position": {
-                "x": 3298,
-                "y": 748
+                "x": 3618,
+                "y": 622
             }
         },
         "next": [
-            "Running_GoBack"
+            "Running_ReturnCheck"
         ]
     },
     "Loading_ReturnCheck": {
@@ -293,28 +311,12 @@
         "post_delay": 2000,
         "__yamaape": {
             "position": {
-                "x": 3682,
-                "y": 1215
+                "x": 3621,
+                "y": 1276
             }
         },
         "next": [
             "LoadingCheck"
-        ]
-    },
-    "Loading_ClickTerms": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "同意"
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 3173,
-                "y": 1162
-            }
-        },
-        "next": [
-            "Loading_ReturnCheck"
         ]
     },
     "Loading_ClickUpdate": {
@@ -326,8 +328,8 @@
         "pre_delay": 30000,
         "__yamaape": {
             "position": {
-                "x": 3173,
-                "y": 1331
+                "x": 3106,
+                "y": 1323
             }
         },
         "next": [
@@ -342,24 +344,8 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 3166,
-                "y": 1560
-            }
-        },
-        "next": [
-            "Loading_ReturnCheck"
-        ]
-    },
-    "Loading_ClickConnect": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "校准现实"
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 3174,
-                "y": 1947
+                "x": 3105,
+                "y": 1551
             }
         },
         "next": [
@@ -389,61 +375,29 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 3561,
-                "y": -728
+                "x": 3550,
+                "y": -650
             }
         },
         "next": [
             "Running_Lobby_3"
         ],
         "interrupt": [
-            "Running_Lobby_Fail"
+            "Running_ReturnCheck"
         ]
     },
-    "Running_Lobby_Fail": {
+    "Running_ReturnCheck": {
         "recognition": "DirectHit",
         "action": "DoNothing",
+        "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 4104,
-                "y": -537
+                "x": 4460,
+                "y": -75
             }
         },
         "next": [
-            "Running_ReturnCheck"
-        ]
-    },
-    "Running_PopupClose": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/PopupClose.png"
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 4013,
-                "y": -349
-            }
-        },
-        "next": [
-            "Running_ReturnCheck"
-        ]
-    },
-    "Running_GetReward": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "获得物品",
-            "点击以继续"
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 4010,
-                "y": -136
-            }
-        },
-        "next": [
-            "Running_ReturnCheck"
+            "RunningCheck"
         ]
     },
     "AlertCheck_Ok": {
@@ -464,8 +418,8 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 3648,
-                "y": 73
+                "x": 3564,
+                "y": 18
             }
         },
         "next": [
@@ -487,44 +441,12 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 3652,
-                "y": 303
+                "x": 3563,
+                "y": 218
             }
         },
         "next": [
             "AlertCheck_ClickCancel"
-        ]
-    },
-    "Running_GoHome": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/HomeBtn.png"
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 4015,
-                "y": 539
-            }
-        },
-        "next": [
-            "Running_ReturnCheck"
-        ]
-    },
-    "Running_GoBack": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/BackBtn.png"
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 4012,
-                "y": 731
-            }
-        },
-        "next": [
-            "Running_ReturnCheck"
         ]
     },
     "Running_Lobby_3": {
@@ -536,28 +458,15 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 3831,
-                "y": -838
+                "x": 3815,
+                "y": -753
             }
         },
         "next": [
             "Running_Lobby_Success"
         ],
         "interrupt": [
-            "Running_Lobby_Fail"
-        ]
-    },
-    "Running_ReturnCheck": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "__yamaape": {
-            "position": {
-                "x": 4537,
-                "y": -99
-            }
-        },
-        "next": [
-            "RunningCheck"
+            "Running_ReturnCheck"
         ]
     },
     "AlertCheck_ClickOk": {
@@ -574,8 +483,8 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 4011,
-                "y": 71
+                "x": 3812,
+                "y": 9
             }
         },
         "next": [
@@ -596,8 +505,8 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 4010,
-                "y": 297
+                "x": 3806,
+                "y": 216
             }
         },
         "next": [
@@ -612,8 +521,8 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 4223,
-                "y": -968
+                "x": 4437,
+                "y": -909
             }
         },
         "next": [
@@ -621,16 +530,206 @@
         ]
     },
     "GameStart_End": {
-        "focus": {
-            "succeeded": "작업 종료: 로그인"
-        },
         "recognition": "DirectHit",
         "action": "StopTask",
         "__yamaape": {
             "position": {
-                "x": 4598,
-                "y": -1082
+                "x": 4684,
+                "y": -893
             }
         }
+    },
+    "LoginEvent_Reward": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "点击以继续"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 5574,
+                "y": 801
+            }
+        },
+        "next": [
+            "LoginEvent_Close"
+        ]
+    },
+    "LoginEvent_Close": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 5867,
+                "y": 944
+            }
+        },
+        "next": [
+            "Running_ReturnCheck"
+        ]
+    },
+    "LoginEvent_Day1": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            200,
+            320,
+            0,
+            0
+        ],
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3877,
+                "y": 827
+            }
+        },
+        "next": [
+            "LoginEvent_Reward"
+        ],
+        "on_error": [
+            "LoginEvent_Day2"
+        ]
+    },
+    "LoginEvent_Day2": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            350,
+            320,
+            0,
+            0
+        ],
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 4104,
+                "y": 883
+            }
+        },
+        "next": [
+            "LoginEvent_Reward"
+        ],
+        "on_error": [
+            "LoginEvent_Day3"
+        ]
+    },
+    "LoginEvent_Day3": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            500,
+            320,
+            0,
+            0
+        ],
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 4340,
+                "y": 937
+            }
+        },
+        "next": [
+            "LoginEvent_Reward"
+        ],
+        "on_error": [
+            "LoginEvent_Day4"
+        ]
+    },
+    "LoginEvent_Day4": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            650,
+            320,
+            0,
+            0
+        ],
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 4571,
+                "y": 994
+            }
+        },
+        "next": [
+            "LoginEvent_Reward"
+        ],
+        "on_error": [
+            "LoginEvent_Day5"
+        ]
+    },
+    "LoginEvent_Day5": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            800,
+            320,
+            0,
+            0
+        ],
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 4810,
+                "y": 1045
+            }
+        },
+        "next": [
+            "LoginEvent_Reward"
+        ],
+        "on_error": [
+            "LoginEvent_Day6"
+        ]
+    },
+    "LoginEvent_Day6": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            950,
+            320,
+            0,
+            0
+        ],
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 5047,
+                "y": 1098
+            }
+        },
+        "next": [
+            "LoginEvent_Reward"
+        ],
+        "on_error": [
+            "LoginEvent_Day7"
+        ]
+    },
+    "LoginEvent_Day7": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            1100,
+            320,
+            0,
+            0
+        ],
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 5284,
+                "y": 1154
+            }
+        },
+        "next": [
+            "LoginEvent_Reward"
+        ],
+        "on_error": [
+            "LoginEvent_Close"
+        ]
     }
 }

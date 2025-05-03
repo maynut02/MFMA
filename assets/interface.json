@@ -29,7 +29,7 @@
         {
             "name": "로그인",
             "entry": "GameStart",
-            "doc": "신월동행 접속",
+            "doc": "[size:15][color:tomato]앱플레이어 해상도를 1280*720로 설정!![/color][/size]\n▪ 피로 짜여진 흔적 출석이벤트 1부(04/30 - 05/15)\n\n신월동행을 실행합니다./\n이미 실행 중인 경우에는 로비 화면으로 이동합니다.\n\n[옵션 설명]\n▪ 서버선택 : 클라이언트 종류(비리비리/직영)에 따라 실행할 앱을 선택합니다.",
             "option": [
                 "서버선택"
             ],
@@ -38,30 +38,47 @@
         {
             "name": "우편 수령",
             "entry": "VisitMail",
-            "doc": "우편 수령"
+            "doc": "모든 미수령 우편을 수령합니다."
         },
         {
             "name": "우정 교환",
             "entry": "VisitFriend",
-            "doc": "우정 교환"
+            "doc": "우정 교환을 진행합니다."
         },
         {
             "name": "상점 탐색",
             "entry": "VisitStore",
-            "doc": "무료 구매 물품 자동 구매"
+            "doc": "일일 무료/골드 구매 품목을 찾아서 구매합니다."
         },
         {
             "name": "스테미너 사용",
             "entry": "UseStamina",
-            "doc": "스테이지 자동 반복으로 스테미너 사용\n- 회복약과 우유 회복(미완성)\n- 입장 가능한 최고 난이도 자동 지정(미완성)",
+            "doc": "스테미너를 모두 사용할 때까지 선택한 스테이지를 반복해서 플레이합니다.\n입장 가능한 최고 난이도가 자동으로 선택됩니다.\n\n[옵션 설명]\n▪ 스테이지 선택 : 파밍할 스테이지를 선택합니다.\n▪ 회복약 사용 : 회복약을 사용하지 않거나 모두 사용할 수 있습니다.\n▪ 우유 사용 : 우유를 사용하지 않거나 최대 6회 사용할 수 있습니다.\n",
             "option": [
-                "스테이지 선택"
+                "스테이지 선택",
+                "회복약 사용",
+                "우유 사용"
             ]
         },
         {
-            "name": "마을 임무(미완성)",
+            "name": "마을 임무",
             "entry": "VisitTown",
-            "doc": "마을 임무 실행"
+            "doc": "마을의 모든 보상을 수령하고 미션을 클리어합니다.\n\n▪ 일부 상황에서 동작하지 않을 수 있습니다."
+        },
+        {
+            "name": "퀘스트 보상",
+            "entry": "VisitTask",
+            "doc": "일일/주간 퀘스트 보상을 수령합니다."
+        },
+        {
+            "name": "시즌패스 보상",
+            "entry": "VisitPass",
+            "doc": "시즌패스 보상을 수령합니다."
+        },
+        {
+            "name": "버전 이벤트",
+            "entry": "VersionEvent",
+            "doc": "진행 중인 이벤트 : v1.2 - 피로 짜여진 흔적"
         }
     ],
     "option": {
@@ -109,7 +126,7 @@
                             ]
                         },
                         "SelectStage": {
-                            "index": 1
+                            "index": -1
                         }
                     }
                 },
@@ -177,7 +194,7 @@
                             ]
                         },
                         "SelectStage": {
-                            "index": 3
+                            "index": -1
                         }
                     }
                 },
@@ -250,7 +267,7 @@
                     }
                 },
                 {
-                    "name": "칩/01",
+                    "name": "칩/역전언탄,협력주방",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -269,7 +286,7 @@
                     }
                 },
                 {
-                    "name": "칩/02",
+                    "name": "칩/실루엣,타워",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -288,7 +305,7 @@
                     }
                 },
                 {
-                    "name": "칩/03",
+                    "name": "칩/주먹,성전",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -307,7 +324,7 @@
                     }
                 },
                 {
-                    "name": "칩/04",
+                    "name": "칩/퍼볼,흡혈",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -326,7 +343,7 @@
                     }
                 },
                 {
-                    "name": "칩/05",
+                    "name": "칩/구형식당,약한운명",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -345,7 +362,7 @@
                     }
                 },
                 {
-                    "name": "칩/06",
+                    "name": "칩/보철의사,황야",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -364,7 +381,7 @@
                     }
                 },
                 {
-                    "name": "칩/07",
+                    "name": "칩/전자표류자,메카코어",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -383,7 +400,7 @@
                     }
                 },
                 {
-                    "name": "칩/08",
+                    "name": "칩/악령,코로나",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -402,7 +419,7 @@
                     }
                 },
                 {
-                    "name": "칩/09",
+                    "name": "칩/북쪽담,성하전사",
                     "pipeline_override": {
                         "StageMenu": {
                             "expected": [
@@ -429,9 +446,128 @@
                             ]
                         },
                         "SelectStage": {
-                            "index": 1,
+                            "index": -1,
                             "next": [
                                 "StageLevel"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "회복약 사용": {
+            "cases": [
+                {
+                    "name": "미사용",
+                    "pipeline_override": {
+                        "RepeatSetting_Stamina": {
+                            "next": [
+                                "RepeatSetting_UseMilk"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "전부 사용",
+                    "pipeline_override": {
+                        "RepeatSetting_Stamina": {
+                            "next": [
+                                "RepeatSetting_UseItem"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "우유 사용": {
+            "cases": [
+                {
+                    "name": "미사용",
+                    "pipeline_override": {
+                        "RepeatSetting_UseMilk_End": {
+                            "expected": [
+                                "今日限购6/6",
+                                "今日限购5/6",
+                                "今日限购4/6",
+                                "今日限购3/6",
+                                "今日限购2/6",
+                                "今日限购1/6",
+                                "今日限购0/6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "1회",
+                    "pipeline_override": {
+                        "RepeatSetting_UseMilk_End": {
+                            "expected": [
+                                "今日限购5/6",
+                                "今日限购4/6",
+                                "今日限购3/6",
+                                "今日限购2/6",
+                                "今日限购1/6",
+                                "今日限购0/6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2회",
+                    "pipeline_override": {
+                        "RepeatSetting_UseMilk_End": {
+                            "expected": [
+                                "今日限购4/6",
+                                "今日限购3/6",
+                                "今日限购2/6",
+                                "今日限购1/6",
+                                "今日限购0/6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3회",
+                    "pipeline_override": {
+                        "RepeatSetting_UseMilk_End": {
+                            "expected": [
+                                "今日限购3/6",
+                                "今日限购2/6",
+                                "今日限购1/6",
+                                "今日限购0/6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4회",
+                    "pipeline_override": {
+                        "RepeatSetting_UseMilk_End": {
+                            "expected": [
+                                "今日限购2/6",
+                                "今日限购1/6",
+                                "今日限购0/6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "5회",
+                    "pipeline_override": {
+                        "RepeatSetting_UseMilk_End": {
+                            "expected": [
+                                "今日限购1/6",
+                                "今日限购0/6"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "6회",
+                    "pipeline_override": {
+                        "RepeatSetting_UseMilk_End": {
+                            "expected": [
+                                "今日限购0/6"
                             ]
                         }
                     }

@@ -1,7 +1,7 @@
 {
     "__yamaape_config_UseStamina": {
         "filename": "UseStamina",
-        "version": "v0.3.2",
+        "version": "v0.3.3",
         "export": ""
     },
     "UseStamina": {
@@ -9,8 +9,8 @@
         "action": "DoNothing",
         "__yamaape": {
             "position": {
-                "x": 956,
-                "y": 599
+                "x": 377,
+                "y": 589
             }
         },
         "next": [
@@ -27,8 +27,8 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 1238,
-                "y": 557
+                "x": 624,
+                "y": 539
             }
         },
         "next": [
@@ -44,8 +44,8 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 1534,
-                "y": 568
+                "x": 878,
+                "y": 556
             }
         },
         "next": [
@@ -66,21 +66,22 @@
             500
         ],
         "post_delay": 1000,
+        "order_by": "Vertical",
         "__yamaape": {
             "position": {
-                "x": 2228,
-                "y": 650
+                "x": 1357,
+                "y": 468
             }
         },
         "next": [
-            "StageLevel"
+            "StageLevel1"
         ]
     },
-    "StageLevel": {
+    "StageLevel1": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
-            "-5"
+            "-1"
         ],
         "roi": [
             40,
@@ -90,35 +91,12 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 3083,
-                "y": 752
+                "x": 2679,
+                "y": 576
             }
         },
         "next": [
-            "StageRepeat",
-            "RepeatSetting_41"
-        ]
-    },
-    "StageRepeat": {
-        "recognition": "TemplateMatch",
-        "action": "Click",
-        "template": [
-            "../image/UseStamina/repeatIcon.png"
-        ],
-        "roi": [
-            830,
-            550,
-            50,
-            50
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 3365,
-                "y": 750
-            }
-        },
-        "next": [
-            "RepeatSetting_41"
+            "StageLevel2"
         ]
     },
     "RepeatSetting_41": {
@@ -133,8 +111,8 @@
         "post_delay": 500,
         "__yamaape": {
             "position": {
-                "x": 3698,
-                "y": 547
+                "x": 3697,
+                "y": 526
             }
         },
         "next": [
@@ -153,8 +131,8 @@
         "post_delay": 500,
         "__yamaape": {
             "position": {
-                "x": 3971,
-                "y": 546
+                "x": 3972,
+                "y": 525
             }
         },
         "next": [
@@ -168,16 +146,17 @@
             "开始挑战"
         ],
         "post_delay": 500,
+        "timeout": 1000,
         "__yamaape": {
             "position": {
-                "x": 4251,
-                "y": 544
+                "x": 4244,
+                "y": 526
             }
         },
         "next": [
             "RepeatSetting_44"
         ],
-        "interrupt": [
+        "on_error": [
             "RepeatReady"
         ]
     },
@@ -190,8 +169,8 @@
         "post_delay": 500,
         "__yamaape": {
             "position": {
-                "x": 4535,
-                "y": 542
+                "x": 4534,
+                "y": 529
             }
         },
         "next": [
@@ -204,8 +183,9 @@
         "expected": [
             "行动开始"
         ],
-        "pre_delay": 400,
+        "pre_delay": 1000,
         "post_delay": 30000,
+        "timeout": 300000,
         "__yamaape": {
             "position": {
                 "x": 4922,
@@ -214,9 +194,6 @@
         },
         "next": [
             "BattleResult"
-        ],
-        "interrupt": [
-            "BattleDelay"
         ]
     },
     "RepeatSetting_31": {
@@ -232,50 +209,11 @@
         "__yamaape": {
             "position": {
                 "x": 3689,
-                "y": 747
+                "y": 750
             }
         },
         "next": [
             "RepeatSetting_32"
-        ]
-    },
-    "BattleResult": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "确定"
-        ],
-        "roi": [
-            1030,
-            610,
-            220,
-            150
-        ],
-        "__yamaape": {
-            "position": {
-                "x": 5497,
-                "y": 830
-            }
-        },
-        "next": [
-            "BattleResult_Delay"
-        ]
-    },
-    "BattleDelay": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "post_delay": 5000,
-        "__yamaape": {
-            "position": {
-                "x": 5206,
-                "y": 763
-            }
-        },
-        "next": [
-            "BattleResult"
-        ],
-        "interrupt": [
-            "BattleDelay2"
         ]
     },
     "RepeatSetting_32": {
@@ -298,6 +236,28 @@
             "RepeatSetting_33"
         ]
     },
+    "BattleResult": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "roi": [
+            1030,
+            610,
+            220,
+            150
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 5194,
+                "y": 800
+            }
+        },
+        "next": [
+            "BattleResult_Delay"
+        ]
+    },
     "BattleResult_Delay": {
         "recognition": "OCR",
         "action": "DoNothing",
@@ -306,26 +266,12 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 5756,
-                "y": 842
+                "x": 5452,
+                "y": 774
             }
         },
         "next": [
             "RepeatSetting_41"
-        ]
-    },
-    "BattleDelay2": {
-        "recognition": "DirectHit",
-        "action": "DoNothing",
-        "post_delay": 5000,
-        "__yamaape": {
-            "position": {
-                "x": 5212,
-                "y": 947
-            }
-        },
-        "next": [
-            "BattleDelay"
         ]
     },
     "RepeatSetting_33": {
@@ -335,16 +281,17 @@
             "开始挑战"
         ],
         "post_delay": 500,
+        "timeout": 1000,
         "__yamaape": {
             "position": {
-                "x": 4246,
-                "y": 742
+                "x": 4242,
+                "y": 744
             }
         },
         "next": [
             "RepeatSetting_34"
         ],
-        "interrupt": [
+        "on_error": [
             "RepeatReady"
         ]
     },
@@ -357,12 +304,52 @@
         "post_delay": 500,
         "__yamaape": {
             "position": {
-                "x": 4535,
-                "y": 742
+                "x": 4536,
+                "y": 738
             }
         },
         "next": [
             "RepeatSetting_21"
+        ]
+    },
+    "RepeatSetting_21": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            888,
+            622,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3691,
+                "y": 972
+            }
+        },
+        "next": [
+            "RepeatSetting_22"
+        ]
+    },
+    "RepeatSetting_22": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            900,
+            532,
+            1,
+            1
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 3968,
+                "y": 968
+            }
+        },
+        "next": [
+            "RepeatSetting_23"
         ]
     },
     "ChipList": {
@@ -374,8 +361,8 @@
         "pre_delay": 400,
         "__yamaape": {
             "position": {
-                "x": 2532,
-                "y": 439
+                "x": 1597,
+                "y": 327
             }
         },
         "next": [
@@ -399,8 +386,8 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 2801,
-                "y": 353
+                "x": 1858,
+                "y": 317
             }
         },
         "next": [
@@ -410,16 +397,17 @@
     "ChipList_ChipCheck": {
         "recognition": "DirectHit",
         "action": "DoNothing",
+        "timeout": 500,
         "__yamaape": {
             "position": {
-                "x": 3073,
-                "y": 305
+                "x": 2126,
+                "y": 250
             }
         },
         "next": [
             "ChipList_SelectChip"
         ],
-        "interrupt": [
+        "on_error": [
             "ChipList_SwipeDown"
         ]
     },
@@ -431,12 +419,12 @@
         ],
         "__yamaape": {
             "position": {
-                "x": 3337,
-                "y": 202
+                "x": 2419,
+                "y": 458
             }
         },
         "next": [
-            "StageLevel"
+            "StageLevel1"
         ]
     },
     "ChipList_SwipeDown": {
@@ -457,52 +445,12 @@
         "duration": 400,
         "__yamaape": {
             "position": {
-                "x": 3330,
-                "y": 368
+                "x": 2417,
+                "y": 252
             }
         },
         "next": [
             "ChipList_ChipCheck"
-        ]
-    },
-    "RepeatSetting_21": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            888,
-            622,
-            1,
-            1
-        ],
-        "post_delay": 500,
-        "__yamaape": {
-            "position": {
-                "x": 3690,
-                "y": 938
-            }
-        },
-        "next": [
-            "RepeatSetting_22"
-        ]
-    },
-    "RepeatSetting_22": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            900,
-            532,
-            1,
-            1
-        ],
-        "post_delay": 500,
-        "__yamaape": {
-            "position": {
-                "x": 3965,
-                "y": 938
-            }
-        },
-        "next": [
-            "RepeatSetting_23"
         ]
     },
     "RepeatSetting_23": {
@@ -512,16 +460,17 @@
             "开始挑战"
         ],
         "post_delay": 500,
+        "timeout": 1000,
         "__yamaape": {
             "position": {
-                "x": 4248,
-                "y": 934
+                "x": 4243,
+                "y": 966
             }
         },
         "next": [
             "RepeatSetting_24"
         ],
-        "interrupt": [
+        "on_error": [
             "RepeatReady"
         ]
     },
@@ -535,7 +484,7 @@
         "__yamaape": {
             "position": {
                 "x": 4532,
-                "y": 930
+                "y": 966
             }
         },
         "next": [
@@ -554,8 +503,8 @@
         "post_delay": 500,
         "__yamaape": {
             "position": {
-                "x": 3690,
-                "y": 1128
+                "x": 3698,
+                "y": 1195
             }
         },
         "next": [
@@ -574,8 +523,8 @@
         "post_delay": 500,
         "__yamaape": {
             "position": {
-                "x": 3969,
-                "y": 1126
+                "x": 3968,
+                "y": 1189
             }
         },
         "next": [
@@ -589,16 +538,17 @@
             "开始挑战"
         ],
         "post_delay": 500,
+        "timeout": 1000,
         "__yamaape": {
             "position": {
-                "x": 4246,
-                "y": 1131
+                "x": 4248,
+                "y": 1185
             }
         },
         "next": [
             "RepeatSetting_14"
         ],
-        "interrupt": [
+        "on_error": [
             "RepeatReady"
         ]
     },
@@ -611,8 +561,8 @@
         "post_delay": 500,
         "__yamaape": {
             "position": {
-                "x": 4531,
-                "y": 1128
+                "x": 4530,
+                "y": 1183
             }
         },
         "next": [
@@ -626,6 +576,7 @@
             "../image/HomeBtn.png"
         ],
         "pre_delay": 400,
+        "post_delay": 1000,
         "__yamaape": {
             "position": {
                 "x": 6109,
@@ -637,9 +588,6 @@
         ]
     },
     "UseStamina_End": {
-        "focus": {
-            "succeeded": "작업 종료: 스테미너 사용"
-        },
         "recognition": "DirectHit",
         "action": "StopTask",
         "__yamaape": {
@@ -667,12 +615,262 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 1855,
-                "y": 773
+                "x": 1117,
+                "y": 642
             }
         },
         "next": [
             "SelectStage"
+        ]
+    },
+    "RepeatSetting_UseItem": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "使用稳定合剂恢复"
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 3285,
+                "y": 40
+            }
+        },
+        "next": [
+            "RepeatSetting_UseItem_End"
+        ],
+        "interrupt": [
+            "RepeatSetting_UseItem_Use"
+        ]
+    },
+    "RepeatSetting_UseItem_End": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "暂无可使用的道具"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3572,
+                "y": -42
+            }
+        },
+        "next": [
+            "RepeatSetting_UseMilk"
+        ]
+    },
+    "RepeatSetting_UseItem_Use": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 3569,
+                "y": 118
+            }
+        }
+    },
+    "RepeatSetting_StaminaOut": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/PopupClose.png"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 4396,
+                "y": 31
+            }
+        },
+        "next": [
+            "RepeatSetting_41"
+        ]
+    },
+    "RepeatSetting_UseMilk": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "使用超相尘恢复"
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 3845,
+                "y": 30
+            }
+        },
+        "next": [
+            "RepeatSetting_UseMilk_End"
+        ],
+        "interrupt": [
+            "RepeatSetting_UseMilk_Use"
+        ]
+    },
+    "RepeatSetting_UseMilk_End": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "今日限购6/6"
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4116,
+                "y": -39
+            }
+        },
+        "next": [
+            "RepeatSetting_StaminaOut"
+        ]
+    },
+    "RepeatSetting_UseMilk_Use": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 4119,
+                "y": 123
+            }
+        }
+    },
+    "RepeatSetting_Stamina": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/staminaPlus.png"
+        ],
+        "pre_delay": 400,
+        "__yamaape": {
+            "position": {
+                "x": 3025,
+                "y": 41
+            }
+        },
+        "next": [
+            "RepeatSetting_UseItem"
+        ]
+    },
+    "StageRepeat": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/UseStamina/repeatIcon.png"
+        ],
+        "roi": [
+            830,
+            550,
+            50,
+            50
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2766,
+                "y": -112
+            }
+        },
+        "next": [
+            "RepeatSetting_Stamina"
+        ]
+    },
+    "StageLevel5": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-5"
+        ],
+        "roi": [
+            40,
+            115,
+            700,
+            550
+        ],
+        "timeout": 1000,
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2469,
+                "y": -46
+            }
+        },
+        "next": [
+            "StageRepeat"
+        ],
+        "on_error": [
+            "RepeatSetting_Stamina"
+        ]
+    },
+    "StageLevel2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-2"
+        ],
+        "roi": [
+            40,
+            115,
+            700,
+            550
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 2922,
+                "y": 521
+            }
+        },
+        "next": [
+            "StageLevel3"
+        ]
+    },
+    "StageLevel3": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-3"
+        ],
+        "roi": [
+            40,
+            115,
+            700,
+            550
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3161,
+                "y": 455
+            }
+        },
+        "next": [
+            "StageLevel4"
+        ]
+    },
+    "StageLevel4": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "-4"
+        ],
+        "roi": [
+            40,
+            115,
+            700,
+            550
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 3404,
+                "y": 387
+            }
+        },
+        "next": [
+            "StageLevel5"
         ]
     }
 }

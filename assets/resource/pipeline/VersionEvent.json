@@ -1,0 +1,164 @@
+{
+    "__yamaape_config_VersionEvent": {
+        "filename": "VersionEvent",
+        "version": "v0.3.3",
+        "export": ""
+    },
+    "VersionEvent": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/v1_2event.png"
+        ],
+        "pre_delay": 400,
+        "post_delay": 2000,
+        "__yamaape": {
+            "position": {
+                "x": 2045,
+                "y": 254
+            }
+        },
+        "next": [
+            "VersionEvent_Task1"
+        ]
+    },
+    "VersionEvent_Task1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "秘密收管行动"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2305,
+                "y": 254
+            }
+        },
+        "next": [
+            "VersionEvent_GetAll1"
+        ]
+    },
+    "VersionEvent_GetAll1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "全部领取"
+        ],
+        "post_delay": 1000,
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2565,
+                "y": 254
+            }
+        },
+        "next": [
+            "VersionEvent_Reward1"
+        ],
+        "on_error": [
+            "VersionEvent_Task2"
+        ]
+    },
+    "VersionEvent_Reward1": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "点击以继续"
+        ],
+        "pre_delay": 800,
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2815,
+                "y": 128
+            }
+        },
+        "next": [
+            "VersionEvent_Task2"
+        ]
+    },
+    "VersionEvent_Task2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "一阶段行动任务"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3101,
+                "y": 239
+            }
+        },
+        "next": [
+            "VersionEvent_GetAll2"
+        ]
+    },
+    "VersionEvent_GetAll2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "全部领取"
+        ],
+        "post_delay": 1000,
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3360,
+                "y": 237
+            }
+        },
+        "next": [
+            "VersionEvent_Reward2"
+        ],
+        "on_error": [
+            "VersionEvent_Out"
+        ]
+    },
+    "VersionEvent_Reward2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "点击以继续"
+        ],
+        "pre_delay": 800,
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3625,
+                "y": 126
+            }
+        },
+        "next": [
+            "VersionEvent_Out"
+        ]
+    },
+    "VersionEvent_Out": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/HomeBtn.png"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 3898,
+                "y": 252
+            }
+        },
+        "next": [
+            "VersionEvent_End"
+        ]
+    },
+    "VersionEvent_End": {
+        "recognition": "DirectHit",
+        "action": "StopTask",
+        "__yamaape": {
+            "position": {
+                "x": 4163,
+                "y": 261
+            }
+        }
+    }
+}
