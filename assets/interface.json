@@ -446,10 +446,7 @@
                             ]
                         },
                         "SelectStage": {
-                            "index": -1,
-                            "next": [
-                                "StageLevel"
-                            ]
+                            "index": -1
                         }
                     }
                 }
