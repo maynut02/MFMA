@@ -10,6 +10,7 @@
         "expected": [
             "城市探索"
         ],
+        "pre_delay": 800,
         "__yamaape": {
             "position": {
                 "x": 1259,
@@ -923,129 +924,40 @@
             "TownEvent_Request_3"
         ]
     },
-    "TownEvent_Request_3": {
-        "recognition": "DirectHit",
+    "TownEvent_Battle_AutoCheck": {
+        "recognition": "TemplateMatch",
         "action": "Click",
+        "template": [
+            "../image/TownEvent/battleNoAuto.png"
+        ],
+        "pre_delay": 400,
         "target": [
-            381,
-            262,
-            1,
-            1
-        ],
-        "post_delay": 300,
-        "__yamaape": {
-            "position": {
-                "x": 5806,
-                "y": 2514
-            }
-        },
-        "next": [
-            "TownEvent_Request_4"
-        ]
-    },
-    "TownEvent_Request_4": {
-        "recognition": "DirectHit",
-        "action": "Click",
-        "target": [
-            499,
-            266,
-            1,
-            1
-        ],
-        "post_delay": 300,
-        "timeout": 1000,
-        "__yamaape": {
-            "position": {
-                "x": 6102,
-                "y": 2512
-            }
-        },
-        "next": [
-            "TownEvent_Request_5"
-        ],
-        "on_error": [
-            "TownEvent_Request_0"
-        ]
-    },
-    "TownEvent_Request_5": {
-        "recognition": "OCR",
-        "action": "DoNothing",
-        "expected": [
-            "需派遣3人"
-        ],
-        "inverse": true,
-        "__yamaape": {
-            "position": {
-                "x": 6379,
-                "y": 2504
-            }
-        },
-        "next": [
-            "TownEvent_Request_6"
-        ]
-    },
-    "TownEvent_Request_0": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "返回"
-        ],
-        "post_delay": 500,
-        "__yamaape": {
-            "position": {
-                "x": 5730,
-                "y": 2743
-            }
-        },
-        "next": [
-            "TownEvent_Request_1"
-        ]
-    },
-    "TownEvent_Request_6": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "执行委托"
-        ],
-        "roi": [
-            900,
-            500,
-            200,
-            80
-        ],
-        "post_delay": 3000,
-        "__yamaape": {
-            "position": {
-                "x": 6680,
-                "y": 2500
-            }
-        },
-        "next": [
-            "TownEvent_Request_7"
-        ]
-    },
-    "TownEvent_Request_7": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "结算委托"
-        ],
-        "roi": [
-            900,
-            500,
-            200,
-            80
+            1222,
+            187,
+            0,
+            0
         ],
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 6940,
-                "y": 2500
+                "x": 6442,
+                "y": 804
             }
-        },
-        "next": [
-            "TownEvent_Reward"
-        ]
+        }
+    },
+    "TownEvent_StorySkip2": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "确定"
+        ],
+        "post_delay": 3000,
+        "__yamaape": {
+            "position": {
+                "x": 5933,
+                "y": 889
+            }
+        }
     },
     "TownEvent_ReturnCheck": {
         "recognition": "OCR",
@@ -1154,40 +1066,25 @@
             }
         }
     },
-    "TownEvent_Battle_AutoCheck": {
-        "recognition": "TemplateMatch",
+    "TownEvent_Request_3": {
+        "recognition": "DirectHit",
         "action": "Click",
-        "template": [
-            "../image/TownEvent/battleNoAuto.png"
-        ],
-        "pre_delay": 400,
         "target": [
-            1222,
-            187,
-            0,
-            0
+            381,
+            262,
+            1,
+            1
         ],
-        "post_delay": 1000,
+        "post_delay": 300,
         "__yamaape": {
             "position": {
-                "x": 6442,
-                "y": 804
+                "x": 5806,
+                "y": 2514
             }
-        }
-    },
-    "TownEvent_StorySkip2": {
-        "recognition": "OCR",
-        "action": "Click",
-        "expected": [
-            "确定"
-        ],
-        "post_delay": 3000,
-        "__yamaape": {
-            "position": {
-                "x": 5933,
-                "y": 889
-            }
-        }
+        },
+        "next": [
+            "TownEvent_Request_4"
+        ]
     },
     "TownEvent_Reward_StorySkip2": {
         "recognition": "OCR",
@@ -1202,5 +1099,109 @@
                 "y": 539
             }
         }
+    },
+    "TownEvent_Request_4": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [
+            499,
+            266,
+            1,
+            1
+        ],
+        "post_delay": 300,
+        "timeout": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 6102,
+                "y": 2512
+            }
+        },
+        "next": [
+            "TownEvent_Request_5"
+        ],
+        "on_error": [
+            "TownEvent_Request_0"
+        ]
+    },
+    "TownEvent_Request_5": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "需派遣3人"
+        ],
+        "inverse": true,
+        "__yamaape": {
+            "position": {
+                "x": 6379,
+                "y": 2504
+            }
+        },
+        "next": [
+            "TownEvent_Request_6"
+        ]
+    },
+    "TownEvent_Request_0": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "返回"
+        ],
+        "post_delay": 500,
+        "__yamaape": {
+            "position": {
+                "x": 5730,
+                "y": 2743
+            }
+        },
+        "next": [
+            "TownEvent_Request_1"
+        ]
+    },
+    "TownEvent_Request_6": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "执行委托"
+        ],
+        "roi": [
+            900,
+            500,
+            200,
+            80
+        ],
+        "post_delay": 3000,
+        "__yamaape": {
+            "position": {
+                "x": 6680,
+                "y": 2500
+            }
+        },
+        "next": [
+            "TownEvent_Request_7"
+        ]
+    },
+    "TownEvent_Request_7": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "结算委托"
+        ],
+        "roi": [
+            900,
+            500,
+            200,
+            80
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 6940,
+                "y": 2500
+            }
+        },
+        "next": [
+            "TownEvent_Reward"
+        ]
     }
 }
