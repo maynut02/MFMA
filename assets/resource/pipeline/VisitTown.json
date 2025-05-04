@@ -1,7 +1,7 @@
 {
     "__yamaape_config_VisitTown": {
         "filename": "VisitTown",
-        "version": "v0.3.3",
+        "version": "v0.3.4",
         "export": ""
     },
     "VisitTown": {
@@ -637,7 +637,9 @@
         "next": [
             "TownEvent_Battle",
             "TownEvent_Story",
-            "TownEvent_Request"
+            "TownEvent_Request",
+            "TownEvent_Action",
+            "TownEvnet_Chat"
         ]
     },
     "OutTown": {
@@ -663,6 +665,12 @@
         "expected": [
             "战斗"
         ],
+        "roi": [
+            710,
+            50,
+            560,
+            650
+        ],
         "__yamaape": {
             "position": {
                 "x": 4926,
@@ -678,6 +686,12 @@
         "action": "DoNothing",
         "expected": [
             "剧情"
+        ],
+        "roi": [
+            710,
+            50,
+            560,
+            650
         ],
         "__yamaape": {
             "position": {
@@ -702,6 +716,8 @@
             650
         ],
         "post_delay": 500,
+        "order_by": "Vertical",
+        "index": -1,
         "__yamaape": {
             "position": {
                 "x": 4958,
@@ -710,6 +726,66 @@
         },
         "next": [
             "TownEvent_Request_1"
+        ]
+    },
+    "TownEvent_Action": {
+        "recognition": "OCR",
+        "action": "DoNothing",
+        "expected": [
+            "疑犯追踪",
+            "黑莲花",
+            "暗度陈仓",
+            "蚂蚁的触角",
+            "适度文明",
+            "四海来客",
+            "泉流出行",
+            "账目难平",
+            "风中飞砂",
+            "素质培训",
+            "剧情"
+        ],
+        "roi": [
+            710,
+            50,
+            560,
+            650
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4940,
+                "y": 1558
+            }
+        },
+        "next": [
+            "TownEvent_ActionReady"
+        ]
+    },
+    "TownEvnet_Chat": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "进入讨论"
+        ],
+        "order_by": "Vertical",
+        "index": -1,
+        "roi": [
+            710,
+            50,
+            560,
+            650
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 4935,
+                "y": 1900
+            }
+        },
+        "next": [
+            "TownEvent_ChatEnd"
+        ],
+        "interrupt": [
+            "TownEvent_ChatNext",
+            "TownEvent_ChatSelect"
         ]
     },
     "VisitTown_End": {
@@ -732,6 +808,8 @@
             "行动"
         ],
         "timeout": 300000,
+        "order_by": "Vertical",
+        "index": -1,
         "__yamaape": {
             "position": {
                 "x": 5178,
@@ -755,6 +833,8 @@
             "行动"
         ],
         "timeout": 300000,
+        "order_by": "Vertical",
+        "index": -1,
         "__yamaape": {
             "position": {
                 "x": 5190,
@@ -798,10 +878,12 @@
         "post_delay": 1000,
         "timeout": 180000,
         "rate_limit": 3000,
+        "order_by": "Vertical",
+        "index": -1,
         "__yamaape": {
             "position": {
-                "x": 6196,
-                "y": 716
+                "x": 6179,
+                "y": 683
             }
         },
         "next": [
@@ -852,8 +934,8 @@
         "post_delay": 10,
         "__yamaape": {
             "position": {
-                "x": 5696,
-                "y": 1068
+                "x": 5461,
+                "y": 1072
             }
         }
     },
@@ -873,8 +955,8 @@
         "post_delay": 10,
         "__yamaape": {
             "position": {
-                "x": 5460,
-                "y": 1069
+                "x": 5695,
+                "y": 1071
             }
         }
     },
@@ -889,8 +971,8 @@
         "timeout": 180000,
         "__yamaape": {
             "position": {
-                "x": 7994,
-                "y": 400
+                "x": 7218,
+                "y": 1116
             }
         },
         "next": [
@@ -940,8 +1022,8 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 6442,
-                "y": 804
+                "x": 6439,
+                "y": 880
             }
         }
     },
@@ -974,8 +1056,8 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 8316,
-                "y": 58
+                "x": 7617,
+                "y": 711
             }
         },
         "next": [
@@ -991,8 +1073,8 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 8316,
-                "y": 281
+                "x": 7617,
+                "y": 924
             }
         },
         "next": [
@@ -1008,8 +1090,8 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 8293,
-                "y": 539
+                "x": 7505,
+                "y": 1188
             }
         }
     },
@@ -1022,8 +1104,8 @@
         "pre_delay": 400,
         "__yamaape": {
             "position": {
-                "x": 8518,
-                "y": 540
+                "x": 7748,
+                "y": 1187
             }
         },
         "next": [
@@ -1040,8 +1122,8 @@
         "post_delay": 10,
         "__yamaape": {
             "position": {
-                "x": 8520,
-                "y": 723
+                "x": 7498,
+                "y": 1379
             }
         }
     },
@@ -1061,8 +1143,8 @@
         "post_delay": 10,
         "__yamaape": {
             "position": {
-                "x": 8297,
-                "y": 722
+                "x": 7753,
+                "y": 1383
             }
         }
     },
@@ -1095,8 +1177,8 @@
         "post_delay": 3000,
         "__yamaape": {
             "position": {
-                "x": 8750,
-                "y": 539
+                "x": 7986,
+                "y": 1190
             }
         }
     },
@@ -1198,6 +1280,123 @@
             "position": {
                 "x": 6940,
                 "y": 2500
+            }
+        },
+        "next": [
+            "TownEvent_Reward"
+        ]
+    },
+    "TownEvent_ActionReady": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "行动开始"
+        ],
+        "timeout": 300000,
+        "order_by": "Vertical",
+        "index": -1,
+        "__yamaape": {
+            "position": {
+                "x": 5200,
+                "y": 1558
+            }
+        },
+        "next": [
+            "TownEvent_BattleStart",
+            "TownEvent_Reward"
+        ],
+        "interrupt": [
+            "TownEvent_StorySkip",
+            "TownEvent_StorySkip1",
+            "TownEvent_StoryChat",
+            "TownEvent_StoryCheck"
+        ]
+    },
+    "TownEvent_ChatEnd": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "结束讨论"
+        ],
+        "roi": [
+            640,
+            550,
+            570,
+            100
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 5509,
+                "y": 1876
+            }
+        },
+        "next": [
+            "TownEvent_ChatOut"
+        ]
+    },
+    "TownEvent_ChatNext": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "请输入内容"
+        ],
+        "roi": [
+            640,
+            550,
+            570,
+            100
+        ],
+        "target": [
+            720,
+            220,
+            0,
+            0
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 5213,
+                "y": 2006
+            }
+        }
+    },
+    "TownEvent_ChatSelect": {
+        "recognition": "TemplateMatch",
+        "action": "Click",
+        "template": [
+            "../image/TownEvent/chat01.png",
+            "../image/TownEvent/chat02.png",
+            "../image/TownEvent/chat03.png",
+            "../image/TownEvent/chat04.png",
+            "../image/TownEvent/chat05.png",
+            "../image/TownEvent/chat06.png",
+            "../image/TownEvent/chat07.png"
+        ],
+        "roi": [
+            1070,
+            400,
+            90,
+            260
+        ],
+        "__yamaape": {
+            "position": {
+                "x": 5213,
+                "y": 2225
+            }
+        }
+    },
+    "TownEvent_ChatOut": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "点击空白区域关闭界面"
+        ],
+        "pre_delay": 800,
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 5769,
+                "y": 1876
             }
         },
         "next": [
