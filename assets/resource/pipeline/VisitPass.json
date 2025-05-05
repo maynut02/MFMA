@@ -1,7 +1,7 @@
 {
     "__yamaape_config_VisitPass": {
         "filename": "VisitPass",
-        "version": "v0.3.3",
+        "version": "v0.3.4",
         "export": ""
     },
     "VisitPass": {
@@ -43,6 +43,9 @@
         },
         "next": [
             "PassMission_Get"
+        ],
+        "interrupt": [
+            "新增节点227"
         ]
     },
     "PassMission_Get": {
@@ -54,8 +57,8 @@
         "post_delay": 1000,
         "__yamaape": {
             "position": {
-                "x": 2456,
-                "y": 188
+                "x": 2449,
+                "y": 80
             }
         },
         "next": [
@@ -147,6 +150,20 @@
             "position": {
                 "x": 3843,
                 "y": 185
+            }
+        }
+    },
+    "新增节点227": {
+        "recognition": "OCR",
+        "action": "Click",
+        "expected": [
+            "等级提升"
+        ],
+        "post_delay": 1000,
+        "__yamaape": {
+            "position": {
+                "x": 2450,
+                "y": 302
             }
         }
     }
