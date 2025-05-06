@@ -45,7 +45,7 @@
             "PassMission_Get"
         ],
         "interrupt": [
-            "新增节点227"
+            "VisitPass_LavelUp"
         ]
     },
     "PassMission_Get": {
@@ -153,12 +153,13 @@
             }
         }
     },
-    "新增节点227": {
+    "VisitPass_LavelUp": {
         "recognition": "OCR",
         "action": "Click",
         "expected": [
             "等级提升"
         ],
+        "pre_delay": 800,
         "post_delay": 1000,
         "__yamaape": {
             "position": {
