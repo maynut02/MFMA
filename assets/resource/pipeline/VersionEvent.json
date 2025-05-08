@@ -152,6 +152,9 @@
         ]
     },
     "VersionEvent_End": {
+        "focus": {
+            "succeeded": "작업 종료: 버전 이벤트"
+        },
         "recognition": "DirectHit",
         "action": "StopTask",
         "__yamaape": {

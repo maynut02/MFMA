@@ -789,6 +789,9 @@
         ]
     },
     "VisitTown_End": {
+        "focus": {
+            "succeeded": "작업 종료: 마을 임무"
+        },
         "recognition": "OCR",
         "action": "StopTask",
         "expected": [

@@ -78,6 +78,9 @@
         ]
     },
     "VisitMail_End": {
+        "focus": {
+            "succeeded": "작업 종료: 우편 수령"
+        },
         "recognition": "DirectHit",
         "action": "StopTask",
         "__yamaape": {

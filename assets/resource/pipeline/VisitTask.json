@@ -156,6 +156,9 @@
         ]
     },
     "VisitTask_End": {
+        "focus": {
+            "succeeded": "작업 종료: 퀘스트 보상"
+        },
         "recognition": "DirectHit",
         "action": "StopTask",
         "__yamaape": {
